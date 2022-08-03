@@ -1,0 +1,54 @@
+#loginPannelRoot .background {
+  background-color: #404246;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#loginPannelRoot .form {
+  background-color: #222628;
+  position: absolute;
+  margin: 0;
+  left: calc(50% - 400px);
+  top: calc(50% - 200px);
+  width: 800px;
+  height: 400px;
+}
+#loginPannelRoot .divider {
+  width: 1px;
+  height: 240px;
+  margin: 0;
+  position: absolute;
+  left: 310px;
+  top: 80px;
+  background-color: #677078;
+}
+#loginPannelRoot #emailField {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 100px);
+  width: 200px;
+  background-color: #222628;
+  border: solid #01adee;
+  border-radius: 8px;
+}
+#loginPannelRoot #passwordField {
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 100px);
+  width: 200px;
+  background-color: #222628;
+  border: solid #01adee;
+  border-radius: 8px;
+}
+#loginPannelRoot #loginForm {
+  position: absolute;
+  left: 311px;
+  top: 80px;
+  width: 489px;
+  height: 240px;
+}
+
+/*# sourceMappingURL=main.css.map */

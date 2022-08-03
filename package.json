@@ -1,0 +1,86 @@
+{
+  "name": "secryptly",
+  "version": "1.0.0",
+  "description": "secure messaging app",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "babel src/UI/jsx --out-dir src/UI/lib && sass src/UI/css/main.scss src/UI/lib/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madff386/secryptly_vJS.git"
+  },
+  "author": "Mdaff386",
+  "bugs": {
+    "url": "https://github.com/Madff386/secryptly_vJS/issues"
+  },
+  "homepage": "https://github.com/Madff386/secryptly_vJS#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-wix": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.2.5",
+    "babel-preset-env": "^1.7.0",
+    "electron": "^19.0.9"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "static/images/icon-transparent"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-wix",
+          "config": {
+            "name": "SECRYPTLY",
+            "appIconPath": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\icon-transparent.ico",
+            "ui": {
+              "chooseDirectory": true,
+              "images": {
+                "background": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_background.bmp",
+                "banner": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_banner.bmp"
+              }
+            }
+          }
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "secryptly"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
