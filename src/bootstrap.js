@@ -13,6 +13,7 @@ console.log(keys.decrypt(enc));
 
 
 const secryptly = new Token;
+const locale = Intl.DateTimeFormat().resolvedOptions().locale;
 
 
 require('./UI/lib/main');

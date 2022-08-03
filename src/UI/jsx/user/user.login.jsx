@@ -1,6 +1,7 @@
 const api = require('../../../networking/api/api');
 const React = require('react');
 const ReactDOM = require('react-dom/client');
+const strings = require('../../strings.json')[locale];
 
 function login(){
     event.preventDefault();
@@ -47,11 +48,12 @@ class LoginPannel extends React.Component {
     return (
       <div className="background">
         <div className="form">
+          <img id='logo' src="../static/images/logo_transparent.png" alt="secryptly logo" />
           <div className="divider"></div>
           <form onSubmit={this.handleSubmit} id="loginForm">
             <input id="emailField" type='text' name="email" onChange={this.handleInputChange}/>
             <input id="passwordField" type="password" name="password" onChange={this.handleInputChange}/>
-            <button id="submitButton" type='submit'>LOGIN</button>
+            <button id="submitButton" type='submit'>{strings.loginText}</button>
           </form>
         </div>
       </div>

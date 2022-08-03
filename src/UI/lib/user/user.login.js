@@ -4,6 +4,8 @@ const React = require('react');
 
 const ReactDOM = require('react-dom/client');
 
+const strings = require('../../strings.json')[locale];
+
 function login() {
   event.preventDefault();
   form = document.getElementById('loginForm');
@@ -45,7 +47,11 @@ class LoginPannel extends React.Component {
       className: "background"
     }, /*#__PURE__*/React.createElement("div", {
       className: "form"
-    }, /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement("img", {
+      id: "logo",
+      src: "../static/images/logo_transparent.png",
+      alt: "secryptly logo"
+    }), /*#__PURE__*/React.createElement("div", {
       className: "divider"
     }), /*#__PURE__*/React.createElement("form", {
       onSubmit: this.handleSubmit,
@@ -63,7 +69,7 @@ class LoginPannel extends React.Component {
     }), /*#__PURE__*/React.createElement("button", {
       id: "submitButton",
       type: "submit"
-    }, "LOGIN"))));
+    }, strings.loginText))));
   }
 
 }
