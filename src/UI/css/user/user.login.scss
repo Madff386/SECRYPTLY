@@ -1,5 +1,27 @@
 @import '../color.pallet.scss';
 
+@mixin textInput {
+    position: absolute;
+    padding: 2px 2px 2px 10px;
+    left: calc(50% - 125px);
+    width: 238px;
+    height: 38px;
+    background-color: $COLOR_BACKGROUND;
+    border: solid 1px $COLOR_OUTLINE;
+    color: $COLOR_OUTLINE;
+    border-radius: 8px;
+    font:$FONT_GENERAL_UI;
+
+    &:focus {
+        outline: none ! important;
+        border-color: $COLOR_INTERACTIVE;
+        color:$LIGHT_TEXT;
+    }
+}
+
+
+
+
 .background{
     background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
     position:absolute;
@@ -10,8 +32,15 @@
     height:100%;
 }
 
+.loading{
+    cursor: wait;
+}
 
-.form{
+.loading *{
+    cursor: wait !important;
+}
+
+#panel{
     background-color: $COLOR_BACKGROUND;
     position:absolute;
     margin:0;
@@ -19,6 +48,34 @@
     top: calc(50% - 200px);
     width:800px;
     height:400px;
+}
+
+#form{
+    overflow:hidden;
+    position: absolute;
+    left:311px;
+    top:0px;
+    width:489px;
+    height:400px;
+}
+
+#loginForm{
+    position: absolute;
+    left:0px;
+    top:80px;
+    width:489px;
+    height:240px;
+    transition: transform 200ms ease-in-out;
+}
+
+
+#createForm{
+    position: absolute;
+    left:380px;
+    top:80px;
+    width:489px;
+    height:240px;
+    transition: transform 200ms ease-in-out;
 }
 
 .divider {
@@ -31,55 +88,71 @@
     background-color: $COLOR_OUTLINE;
 }
 
-#emailField{
-    position: absolute;
-    padding: 2px 2px 2px 10px;
-    top: 29px;
-    left: calc(50% - 125px);
-    width: 250px;
-    height: 44px;
-    background-color: $COLOR_BACKGROUND;
-    border: solid 1px $COLOR_OUTLINE;
-    color: $COLOR_OUTLINE;
-    border-radius: 8px;
-    font:$FONT_GENERAL_UI;
-}
 
-#emailField:focus{
-    outline: none ! important;
-    border-color: $COLOR_INTERACTIVE;
-    color:$LIGHT_TEXT;
+
+#emailField{
+    @include textInput();
+    top: 29px;
 }
 
 #passwordField{
-    padding: 2px 2px 2px 10px;
-    position: absolute;
+    @include textInput();
     top: 88px;
-    left: calc(50% - 125px);
-    width: 250px;
-    height: 44px;
-    background-color: $COLOR_BACKGROUND;
-    border: solid 1px $COLOR_OUTLINE;
-    color: $COLOR_OUTLINE;
-    border-radius: 8px;
-    font:$FONT_GENERAL_UI;
 }
 
-#passwordField:focus{
-    outline: none ! important;
-    border-color: $COLOR_INTERACTIVE;
-    color:$LIGHT_TEXT;
+#loginError{
+    top: 142px;
 }
 
-#loginForm{
+#emailCreateField{
+    @include textInput();
+    top: -34px;
+}
+
+#usernameField{
+    @include textInput();
+    top: 27px;
+}
+
+#passwordCreateField{
+    @include textInput();
+    top: 88px;
+}
+
+#confirmPasswordField{
+    @include textInput();
+    top: 149px;
+}
+
+#createButton{
+    top: 210px;
+}
+
+.error{
     position: absolute;
-    left:311px;
-    top:80px;
-    width:489px;
-    height:240px;
+    left: calc(50% - 105px);
+    font: $FONT_ERROR;
+    color: red;
+
 }
 
-#submitButton{
+#emailError{
+    top:9px
+}
+
+#usernameError{
+    top:70px
+}
+
+#passwordError{
+    top:131px
+}
+
+#confirmError{
+    top:192px
+}
+
+.submitButton{
     position: absolute;
     background-color: $COLOR_INTERACTIVE;
     color: $LIGHT_TEXT;
@@ -95,9 +168,16 @@
 
 }
 
-#submitButton:hover{
+.submitButton:hover{
+    cursor: pointer;
     color:$OFF_LIGHT_TEXT;
     background-color: $COLOR_INTERACTIVE_DARKER;
+}
+
+.submitButton:disabled{
+    color: $OFF_LIGHT_TEXT;
+    background-color: $COLOR_OUTLINE;
+    cursor: not-allowed;
 }
 
 
@@ -107,4 +187,32 @@
     left:50px;
     top:100px;
     height:223px;
+}
+
+#createAccount{
+    margin:0px;
+    position: absolute;
+    top:220px;
+    left:279px;
+    color: $COLOR_OUTLINE;
+    font: $FONT_FORGOT_PASSWORD;
+}
+
+#createAccount:hover{
+    cursor: pointer;
+    color: $COLOR_OUTLINE_DARKER;
+}
+
+#loginLink{
+    margin:0px;
+    position: absolute;
+    top:260px;
+    left:285px;
+    color: $COLOR_OUTLINE;
+    font: $FONT_FORGOT_PASSWORD;
+}
+
+#loginLink:hover{
+    cursor: pointer;
+    color: $COLOR_OUTLINE_DARKER;
 }

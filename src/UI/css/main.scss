@@ -1,4 +1,64 @@
+@import "./color.pallet.scss";
+
 
 #loginPannelRoot{
     @import './user/user.login';
+}
+
+.cet-titlebar, .cet-titlebar > * {
+    font-family: $FONT_GENERAL_UI_FAMILY;
+}
+
+.cet-menubar .cet-menubar-menu-container .cet-action-menu-item {
+    height: 1.5em !important;
+}
+
+#mainAppRoot{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    height: 100%;
+    width: 100%;
+} 
+
+#mainAppWrapper{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    background-color: $COLOR_BACKGROUND_LIGHTER_2;
+
+    @import './scroll.bar';
+
+    & #contactPannel{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        position: absolute;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:65px;
+        background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+        @import './user/contacts.pannel';
+    }
+
+    & #messagePannel{
+        background: $COLOR_BACKGROUND_LIGHTER_2;
+        width: 100%;
+        height: calc(100% - 135px);
+        top: 65px;
+        position: absolute;
+        @import './messages/main.messages.pannel';
+    }
+
+    & #infoPannel{
+        position:absolute;
+        background-color: $COLOR_BACKGROUND;
+        width:100%;
+        height: 70px;
+        top: calc(100% - 70px);
+        left: 0px;
+        @import './info/info.bar';
+    }
 }

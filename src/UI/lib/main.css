@@ -7,7 +7,13 @@
   width: 100%;
   height: 100%;
 }
-#loginPannelRoot .form {
+#loginPannelRoot .loading {
+  cursor: wait;
+}
+#loginPannelRoot .loading * {
+  cursor: wait !important;
+}
+#loginPannelRoot #panel {
   background-color: #222628;
   position: absolute;
   margin: 0;
@@ -15,6 +21,30 @@
   top: calc(50% - 200px);
   width: 800px;
   height: 400px;
+}
+#loginPannelRoot #form {
+  overflow: hidden;
+  position: absolute;
+  left: 311px;
+  top: 0px;
+  width: 489px;
+  height: 400px;
+}
+#loginPannelRoot #loginForm {
+  position: absolute;
+  left: 0px;
+  top: 80px;
+  width: 489px;
+  height: 240px;
+  transition: transform 200ms ease-in-out;
+}
+#loginPannelRoot #createForm {
+  position: absolute;
+  left: 380px;
+  top: 80px;
+  width: 489px;
+  height: 240px;
+  transition: transform 200ms ease-in-out;
 }
 #loginPannelRoot .divider {
   width: 1px;
@@ -28,15 +58,15 @@
 #loginPannelRoot #emailField {
   position: absolute;
   padding: 2px 2px 2px 10px;
-  top: 29px;
   left: calc(50% - 125px);
-  width: 250px;
-  height: 44px;
+  width: 238px;
+  height: 38px;
   background-color: #222628;
   border: solid 1px #677078;
   color: #677078;
   border-radius: 8px;
   font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 29px;
 }
 #loginPannelRoot #emailField:focus {
   outline: none !important;
@@ -44,31 +74,120 @@
   color: #FFFFFF;
 }
 #loginPannelRoot #passwordField {
-  padding: 2px 2px 2px 10px;
   position: absolute;
-  top: 88px;
+  padding: 2px 2px 2px 10px;
   left: calc(50% - 125px);
-  width: 250px;
-  height: 44px;
+  width: 238px;
+  height: 38px;
   background-color: #222628;
   border: solid 1px #677078;
   color: #677078;
   border-radius: 8px;
   font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 88px;
 }
 #loginPannelRoot #passwordField:focus {
   outline: none !important;
   border-color: #01adee;
   color: #FFFFFF;
 }
-#loginPannelRoot #loginForm {
-  position: absolute;
-  left: 311px;
-  top: 80px;
-  width: 489px;
-  height: 240px;
+#loginPannelRoot #loginError {
+  top: 142px;
 }
-#loginPannelRoot #submitButton {
+#loginPannelRoot #emailCreateField {
+  position: absolute;
+  padding: 2px 2px 2px 10px;
+  left: calc(50% - 125px);
+  width: 238px;
+  height: 38px;
+  background-color: #222628;
+  border: solid 1px #677078;
+  color: #677078;
+  border-radius: 8px;
+  font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: -34px;
+}
+#loginPannelRoot #emailCreateField:focus {
+  outline: none !important;
+  border-color: #01adee;
+  color: #FFFFFF;
+}
+#loginPannelRoot #usernameField {
+  position: absolute;
+  padding: 2px 2px 2px 10px;
+  left: calc(50% - 125px);
+  width: 238px;
+  height: 38px;
+  background-color: #222628;
+  border: solid 1px #677078;
+  color: #677078;
+  border-radius: 8px;
+  font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 27px;
+}
+#loginPannelRoot #usernameField:focus {
+  outline: none !important;
+  border-color: #01adee;
+  color: #FFFFFF;
+}
+#loginPannelRoot #passwordCreateField {
+  position: absolute;
+  padding: 2px 2px 2px 10px;
+  left: calc(50% - 125px);
+  width: 238px;
+  height: 38px;
+  background-color: #222628;
+  border: solid 1px #677078;
+  color: #677078;
+  border-radius: 8px;
+  font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 88px;
+}
+#loginPannelRoot #passwordCreateField:focus {
+  outline: none !important;
+  border-color: #01adee;
+  color: #FFFFFF;
+}
+#loginPannelRoot #confirmPasswordField {
+  position: absolute;
+  padding: 2px 2px 2px 10px;
+  left: calc(50% - 125px);
+  width: 238px;
+  height: 38px;
+  background-color: #222628;
+  border: solid 1px #677078;
+  color: #677078;
+  border-radius: 8px;
+  font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 149px;
+}
+#loginPannelRoot #confirmPasswordField:focus {
+  outline: none !important;
+  border-color: #01adee;
+  color: #FFFFFF;
+}
+#loginPannelRoot #createButton {
+  top: 210px;
+}
+#loginPannelRoot .error {
+  position: absolute;
+  left: calc(50% - 105px);
+  font: 12px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: red;
+}
+#loginPannelRoot #emailError {
+  top: 9px;
+}
+#loginPannelRoot #usernameError {
+  top: 70px;
+}
+#loginPannelRoot #passwordError {
+  top: 131px;
+}
+#loginPannelRoot #confirmError {
+  top: 192px;
+}
+#loginPannelRoot .submitButton {
   position: absolute;
   background-color: #01adee;
   color: #FFFFFF;
@@ -82,14 +201,176 @@
   border: 1px;
   font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-#loginPannelRoot #submitButton:hover {
+#loginPannelRoot .submitButton:hover {
+  cursor: pointer;
   color: #e5e5e5;
   background-color: #264b9a;
 }
+#loginPannelRoot .submitButton:disabled {
+  color: #e5e5e5;
+  background-color: #677078;
+  cursor: not-allowed;
+}
 #loginPannelRoot #logo {
+  position: absolute;
   width: 220px;
   left: 50px;
   top: 100px;
+  height: 223px;
+}
+#loginPannelRoot #createAccount {
+  margin: 0px;
+  position: absolute;
+  top: 220px;
+  left: 279px;
+  color: #677078;
+  font: 12px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#loginPannelRoot #createAccount:hover {
+  cursor: pointer;
+  color: #475058;
+}
+#loginPannelRoot #loginLink {
+  margin: 0px;
+  position: absolute;
+  top: 260px;
+  left: 285px;
+  color: #677078;
+  font: 12px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#loginPannelRoot #loginLink:hover {
+  cursor: pointer;
+  color: #475058;
+}
+
+.cet-titlebar, .cet-titlebar > * {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cet-menubar .cet-menubar-menu-container .cet-action-menu-item {
+  height: 1.5em !important;
+}
+
+#mainAppRoot {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#mainAppWrapper {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #303236;
+}
+#mainAppWrapper ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+#mainAppWrapper ::-webkit-scrollbar-track {
+  background-color: #404246;
+}
+#mainAppWrapper ::-webkit-scrollbar-thumb {
+  background-color: #264b9a;
+  border-radius: 2px;
+}
+#mainAppWrapper ::-webkit-scrollbar-thumb:hover {
+  background-color: #01adee;
+}
+#mainAppWrapper #contactPannel {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 65px;
+  background-color: #404246;
+}
+#mainAppWrapper #contactPannel .contact {
+  position: relative;
+  margin: 1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #404246;
+  color: #879098;
+  font: 20px "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#mainAppWrapper #contactPannel .contact:hover {
+  color: #e5e5e5;
+  background-color: #303236;
+}
+#mainAppWrapper #contactPannel .username {
+  position: absolute;
+  left: 60px;
+  margin: 0px;
+  top: 4px;
+}
+#mainAppWrapper #contactPannel .profile {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 22px;
+  left: 5px;
+  top: 5px;
+}
+#mainAppWrapper #contactPannel #contactList {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: absolute;
+  display: flex;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  background-color: #404246;
+}
+#mainAppWrapper #contactPannel .unread {
+  border: 2px inset #01adee;
+  top: 3px !important;
+  left: 3px !important;
+}
+#mainAppWrapper #messagePannel {
+  background: #303236;
+  width: 100%;
+  height: calc(100% - 135px);
+  top: 65px;
+  position: absolute;
+}
+#mainAppWrapper #messagePannel #seperator {
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 100%;
+  background-color: #677078;
+}
+#mainAppWrapper #messagePannel #incomingMessagePannel {
+  width: calc(50% - 1px);
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  height: 100%;
+}
+#mainAppWrapper #messagePannel #outgoingMessagePannel {
+  width: calc(50% - 1px);
+  left: calc(50% + 1px);
+  top: 0px;
+  position: absolute;
+  height: 100%;
+}
+#mainAppWrapper #infoPannel {
+  position: absolute;
+  background-color: #222628;
+  width: 100%;
+  height: 70px;
+  top: calc(100% - 70px);
+  left: 0px;
 }
 
 /*# sourceMappingURL=main.css.map */

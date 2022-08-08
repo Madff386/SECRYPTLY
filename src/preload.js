@@ -1,17 +1,12 @@
+const { Titlebar, Color} = require("custom-electron-titlebar");
+
 window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-      const element = document.getElementById(selector)
-      if (element) element.innerText = text
-    }
-  
-    for (const dependency of ['chrome', 'node', 'electron']) {
-      replaceText(`${dependency}-version`, process.versions[dependency])
-    }
-  })
+  new Titlebar({
+    backgroundColor: Color.fromHex("#303032"),
+    itemBackgroundColor: Color.fromHex("#3A3A3C"),
+    svgColor: Color.fromHex("#677078"),
+    icon: "../static/images/icon-transparent.ico",
+  });
+})
 
 
-const { remote } = require('electron');
-
-window.send_msg = function(msg){
-  console.log(msg);
-}

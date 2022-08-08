@@ -1,0 +1,229 @@
+node_modules/.bin/asar[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/asar.cmd[36m:[m"%_prog%"  "%dp0%\..\asar\bin\asar.js" %[1;31m*[m
+node_modules/.bin/color-support[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/color-support.cmd[36m:[m"%_prog%"  "%dp0%\..\color-support\bin.js" %[1;31m*[m
+node_modules/.bin/dircompare[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/dircompare.cmd[36m:[m"%_prog%"  "%dp0%\..\dir-compare\src\cli\dircompare.js" %[1;31m*[m
+node_modules/.bin/electron[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-forge[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-forge-vscode-nix[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-forge-vscode-nix.cmd[36m:[m"%_prog%"  "%dp0%\..\@electron-forge\cli\script\vscode.sh" %[1;31m*[m
+node_modules/.bin/electron-forge-vscode-win[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-forge-vscode-win.cmd[36m:[m"%dp0%\..\@electron-forge\cli\script\vscode.cmd"   %[1;31m*[m
+node_modules/.bin/electron-forge.cmd[36m:[m"%_prog%"  "%dp0%\..\@electron-forge\cli\dist\electron-forge.js" %[1;31m*[m
+node_modules/.bin/electron-osx-flat[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-osx-flat.cmd[36m:[m"%_prog%"  "%dp0%\..\electron-osx-sign\bin\electron-osx-flat.js" %[1;31m*[m
+node_modules/.bin/electron-osx-sign[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-osx-sign.cmd[36m:[m"%_prog%"  "%dp0%\..\electron-osx-sign\bin\electron-osx-sign.js" %[1;31m*[m
+node_modules/.bin/electron-packager[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-packager.cmd[36m:[m"%_prog%"  "%dp0%\..\electron-packager\bin\electron-packager.js" %[1;31m*[m
+node_modules/.bin/electron-rebuild[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/electron-rebuild.cmd[36m:[m"%_prog%"  "%dp0%\..\electron-rebuild\lib\src\cli.js" %[1;31m*[m
+node_modules/.bin/electron.cmd[36m:[mendLocal & goto #_undefined_# 2>NUL || title %COMSPEC% & "%_prog%"  "%dp0%\..\electron\cli.js" %[1;31m*[m
+node_modules/.bin/extract-zip[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/extract-zip.cmd[36m:[m"%_prog%"  "%dp0%\..\extract-zip\cli.js" %[1;31m*[m
+node_modules/.bin/is-docker[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/is-docker.cmd[36m:[m"%_prog%"  "%dp0%\..\is-docker\cli.js" %[1;31m*[m
+node_modules/.bin/lzmajs[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/lzmajs.cmd[36m:[m"%_prog%"  "%dp0%\..\lzma-native\bin\lzmajs" %[1;31m*[m
+node_modules/.bin/mkdirp[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/mkdirp.cmd[36m:[m"%_prog%"  "%dp0%\..\mkdirp\bin\cmd.js" %[1;31m*[m
+node_modules/.bin/node-gyp[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/node-gyp-build[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/node-gyp-build-optional[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/node-gyp-build-optional.cmd[36m:[m"%_prog%"  "%dp0%\..\node-gyp-build\optional.js" %[1;31m*[m
+node_modules/.bin/node-gyp-build-test[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/node-gyp-build-test.cmd[36m:[m"%_prog%"  "%dp0%\..\node-gyp-build\build-test.js" %[1;31m*[m
+node_modules/.bin/node-gyp-build.cmd[36m:[m"%_prog%"  "%dp0%\..\node-gyp-build\bin.js" %[1;31m*[m
+node_modules/.bin/node-gyp.cmd[36m:[m"%_prog%"  "%dp0%\..\node-gyp\bin\node-gyp.js" %[1;31m*[m
+node_modules/.bin/node-which[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/node-which.cmd[36m:[m"%_prog%"  "%dp0%\..\which\bin\node-which" %[1;31m*[m
+node_modules/.bin/nopt[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/nopt.cmd[36m:[m"%_prog%"  "%dp0%\..\nopt\bin\nopt.js" %[1;31m*[m
+node_modules/.bin/resolve[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/resolve.cmd[36m:[m"%_prog%"  "%dp0%\..\resolve\bin\resolve" %[1;31m*[m
+node_modules/.bin/rimraf[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/rimraf.cmd[36m:[m"%_prog%"  "%dp0%\..\rimraf\bin.js" %[1;31m*[m
+node_modules/.bin/semver[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/semver.cmd[36m:[m"%_prog%"  "%dp0%\..\semver\bin\semver.js" %[1;31m*[m
+node_modules/.bin/uuid[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/uuid.cmd[36m:[mendLocal & goto #_undefined_# 2>NUL || title %COMSPEC% & "%_prog%"  "%dp0%\..\uuid\bin\uuid" %[1;31m*[m
+node_modules/.bin/yarn-or-npm[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/yarn-or-npm.cmd[36m:[m"%_prog%"  "%dp0%\..\yarn-or-npm\bin\index.js" %[1;31m*[m
+node_modules/.bin/yon[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/.bin/yon.cmd[36m:[m"%_prog%"  "%dp0%\..\yarn-or-npm\bin\index.js" %[1;31m*[m
+node_modules/.package-lock.json[36m:[m        "@types/http-cache-semantics": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/keyv": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/responselike": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/estree": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/json-schema": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/eslint": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/estree": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/minimatch": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "node": "6.[1;31m*[m || 8.[1;31m*[m || >= 10.[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "node": "[1;31m*[m"
+node_modules/.package-lock.json[36m:[m        "@types/node": "[1;31m*[m",
+node_modules/.package-lock.json[36m:[m        "node": "[1;31m*[m"
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/module.iobj matches
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/module.ipdb matches
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/module.node matches
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/module.pdb matches
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/obj/module/src/module.obj matches
+Binary file node_modules/@bitdisaster/exe-icon-extractor/build/Release/obj/module/win_delay_load_hook.obj matches
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mstatic UINT NumBitmapBytes(BITMAP [1;31m*[mpBitmap)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	return nWidthBytes [1;31m*[m pBitmap->bmHeight;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mstatic BOOL GetIconBitmapInfo(HICON hIcon, ICONINFO [1;31m*[mpIconInfo, BITMAP [1;31m*[mpbmpColor, BITMAP [1;31m*[mpbmpMask)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mstatic void WriteIconDirectoryEntry(BYTE[1;31m*[m buffer, int[1;31m*[m pBufferOffset, int nIdx, HICON hIcon, UINT nImageOffset)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		nColorCount = 1 << (bmpColor.bmBitsPixel [1;31m*[m bmpColor.bmPlanes);
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	memcpy(&buffer[[1;31m*[mpBufferOffset], &iconDir, sizeof(iconDir));
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	([1;31m*[mpBufferOffset) += sizeof(iconDir);
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mstatic UINT WriteIconData(BYTE[1;31m*[m buffer, int[1;31m*[m pBufferOffset, HBITMAP hBitmap)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	BYTE [1;31m*[m pIconData;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	pIconData = (BYTE [1;31m*[m)malloc(nBitmapBytes);
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		memcpy(&buffer[[1;31m*[mpBufferOffset], pIconData + (i [1;31m*[m bmp.bmWidthBytes), bmp.bmWidthBytes);
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		([1;31m*[mpBufferOffset) += bmp.bmWidthBytes;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m			memcpy(&buffer[[1;31m*[mpBufferOffset], &padding, 4 - bmp.bmWidthBytes);
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m			([1;31m*[mpBufferOffset) += 4 - bmp.bmWidthBytes;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mBOOL SaveIcon3(HICON hIcon[], int nNumIcons, BYTE[1;31m*[m buffer, int[1;31m*[m pWritten)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	int[1;31m*[m pImageOffset = (int [1;31m*[m)malloc(nNumIcons [1;31m*[m sizeof(int));
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	bufferOffset += sizeof(ICONDIR) [1;31m*[m nNumIcons;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		biHeader.biHeight = bmpColor.bmHeight [1;31m*[m 2; // height of color+mono
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m	[1;31m*[mpWritten = bufferOffset;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[mvoid throwIfNotSuccess(napi_env env, napi_status status, char[1;31m*[m msg) {
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		throwIfNotSuccess(env, napi_get_value_string_utf16(env, argv[0], (char16_t[1;31m*[m)path, sizeof(path), &szPath), "unable to read path");
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		throwIfNotSuccess(env, napi_get_value_string_utf16(env, argv[1], (char16_t[1;31m*[m)type, sizeof(type), &szType), "unable to read type");
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		HICON[1;31m*[m target;
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		BYTE buffer[(256[1;31m*[m256)[1;31m*[m4]; // (256x256) Max Windows Icon Size x 4 bytes (32 bits)
+node_modules/@bitdisaster/exe-icon-extractor/src/module.cc[36m:[m		void[1;31m*[m dummy;
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m    /[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m This will keep stdin unpaused if ora inadvertently pauses it. Beware that
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m enabling this may keep the node process alive even when there is no more
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m work to be done, as it will forever be waiting for input on stdin.
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m More context:
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m   https://github.com/electron-userland/electron-forge/issues/2319
+node_modules/@electron-forge/async-ora/dist/ora-handler.d.ts[36m:[m     [1;31m*[m/
+node_modules/@electron-forge/async-ora/package.json[36m:[m    "test": "mocha --config ../../../.mocharc.js test/[1;31m*[m[1;31m*[m/[1;31m*[m_spec.ts"
+node_modules/@electron-forge/cli/README.md[36m:[m| `--skip-package` | N/A | No | Set if you want to skip the packaging step, useful if you are running sequential makes and want to save time. By default, packaging is [1;31m*[m[1;31m*[mnot[1;31m*[m[1;31m*[m skipped. |
+node_modules/@electron-forge/cli/dist/electron-forge-start.js[36m:[m            /[1;31m*[m eslint-disable prefer-const [1;31m*[m/ let onExit;
+node_modules/@electron-forge/cli/dist/electron-forge-start.js[36m:[m            /[1;31m*[m eslint-enable prefer-const [1;31m*[m/ const removeListeners = ()=>{
+node_modules/@electron-forge/cli/dist/electron-forge.js[36m:[m_commander.default.version(metadata.version).option('--verbose', 'Enables verbose mode').command('init', 'Initialize a new Electron application').command('import', 'Attempts to navigate you through the process of importing an existing project to "electron-forge"').command('lint', 'Lints the current Electron application').command('package', 'Package the current Electron application').command('make', 'Generate distributables for the current Electron application').command('start', 'Start the current Electron application').command('publish', 'Publish the current Electron application to GitHub').command('install', 'Install an Electron application from GitHub').on('command:[1;31m*[m', (commands)=>{
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m/[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m Some people know their system is OK and don't appreciate the 800ms lag in
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m start up that these checks (in particular the package manager check) costs.
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m Simply creating this flag file in your home directory will skip these checks
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m and shave ~800ms off your forge start time.
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m This is specifically not documented or everyone would make it.
+node_modules/@electron-forge/cli/dist/util/check-system.js[36m:[m [1;31m*[m/ const SKIP_SYSTEM_CHECK = _path.default.resolve(_os.default.homedir(), '.skip-forge-system-check');
+node_modules/@electron-forge/cli/node_modules/.bin/semver[36m:[m    [1;31m*[mCYGWIN[1;31m*[m|[1;31m*[mMINGW[1;31m*[m|[1;31m*[mMSYS[1;31m*[m) basedir=`cygpath -w "$basedir"`;;
+node_modules/@electron-forge/cli/node_modules/.bin/semver.cmd[36m:[m"%_prog%"  "%dp0%\..\semver\bin\semver.js" %[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[m[1;31m*[m[1;31m*[mNOTE:[1;31m*[m[1;31m*[m You can still use the native Node.js methods. They are promisified and copied over to `fs-extra`. See [notes on `fs.read()`, `fs.write()`, & `fs.writev()`](docs/fs-read-write-writev.md)
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[mNote: If you make any big changes, [1;31m*[m[1;31m*[myou should definitely file an issue for discussion first.[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[m[1;31m*[m https://github.com/jprichardson/node-fs-extra/issues/2
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[m[1;31m*[m https://github.com/flatiron/utile/issues/11
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[m[1;31m*[m https://github.com/ryanmcgrath/wrench-js/issues/29
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[m[1;31m*[m https://github.com/substack/node-mkdirp/issues/17
+node_modules/@electron-forge/cli/node_modules/fs-extra/README.md[36m:[mFor example, `fs.readFile()` and `fs.readdir()`: the [1;31m*[m[1;31m*[mF[1;31m*[m[1;31m*[m is capitalized in [1;31m*[mFile[1;31m*[m and the [1;31m*[m[1;31m*[md[1;31m*[m[1;31m*[m is not capitalized in [1;31m*[mdir[1;31m*[m. Perhaps a bit pedantic, but they should still be consistent. Also, Node.js has chosen a lot of POSIX naming schemes, which I believe is great. See: `fs.mkdir()`, `fs.rmdir()`, `fs.chown()`, etc.
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m/[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m Function that returns two types of paths, one relative to symlink, and one
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m relative to the current working directory. Checks if path is absolute or
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m relative. If the path is relative, this function checks if the path is
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m relative to symlink or relative to current working directory. This is an
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m initiative to find a smarter `srcpath` to supply when building symlinks.
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m This allows you to determine which path to use out of one of three possible
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m types of source paths. The first is an absolute path. This is detected by
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m `path.isAbsolute()`. When an absolute path is provided, it is checked to
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m see if it exists. If it does it's used, if not an error is returned
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m (callback)/ thrown (sync). The other two options for `srcpath` are a
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m relative url. By default Node's `fs.symlink` works by creating a symlink
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m using `dstpath` and expects the `srcpath` to be relative to the newly
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m created symlink. If you provide a `srcpath` that does not exist on the file
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m system it results in a broken symlink. To minimize this, the function
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m checks to see if the 'relative to symlink' source file exists, and if it
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m does it will use it. If it does not, it checks if there's a file that
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m exists that is relative to the current working directory, if does its used.
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m This preserves the expectations of the original fs.symlink spec and adds
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m the ability to pass in `relative to current working direcotry` paths.
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/ensure/symlink-paths.js[36m:[m [1;31m*[m/
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/mkdirs/utils.js[36m:[m    const pathHasInvalidWinCharacters = /[<>:"|?[1;31m*[m]/.test(pth.replace(path.parse(pth).root, ''))
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/remove/rimraf.js[36m:[m        const time = busyTries [1;31m*[m 100
+node_modules/@electron-forge/cli/node_modules/fs-extra/lib/remove/rimraf.js[36m:[m// this looks simpler, and is strictly [1;31m*[mfaster[1;31m*[m, but will
+node_modules/@electron-forge/cli/node_modules/fs-extra/package.json[36m:[m    "!lib/[1;31m*[m[1;31m*[m/__tests__/"
+node_modules/@electron-forge/cli/node_modules/fs-extra/package.json[36m:[m    "test-find": "find ./lib/[1;31m*[m[1;31m*[m/__tests__ -name [1;31m*[m.test.js | xargs mocha",
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m Drop support for Node 6 & 8 ([#128](https://github.com/jprichardson/node-jsonfile/pull/128))
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m Do not allow passing `null` as options to `readFile()` or `writeFile()` ([#128](https://github.com/jprichardson/node-jsonfile/pull/128))
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m Drop Node 4 support
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m If no callback is passed to an asynchronous method, a promise is now returned ([#109](https://github.com/jprichardson/node-jsonfile/pull/109))
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m Remove global `spaces` option.
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m- [1;31m*[m[1;31m*[mBREAKING:[1;31m*[m[1;31m*[m Drop support for Node 0.10, 0.12, and io.js.
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m added `\n` to end of file on write. [#14](https://github.com/jprichardson/node-jsonfile/pull/14)
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m added `options.throws` to `readFileSync()`
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m dropped support for Node v0.8
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m removed semicolons
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m bugfix: passed `options` to `fs.readFile` and `fs.readFileSync`. This technically changes behavior, but
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m fixed catching of callback bug (ffissore / #5)
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m added `options` param to methods, (seanodell / #4)
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m removed `homepage` field from package.json to remove NPM warning
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m added `.npmignore`, #1
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m changed spacing default from `4` to `2` to follow Node conventions
+node_modules/@electron-forge/cli/node_modules/jsonfile/CHANGELOG.md[36m:[m[1;31m*[m Initial release.
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m [`readFile(filename, [options], callback)`](#readfilefilename-options-callback)
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m [`readFileSync(filename, [options])`](#readfilesyncfilename-options)
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m [`writeFile(filename, obj, [options], callback)`](#writefilefilename-obj-options-callback)
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m [`writeFileSync(filename, obj, [options])`](#writefilesyncfilename-obj-options)
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mformatting with spaces:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[moverriding EOL:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mdisabling the EOL at the end of file:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mappending to an existing JSON file:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mformatting with spaces:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[moverriding EOL:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mdisabling the EOL at the end of file:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/jsonfile/README.md[36m:[m[1;31m*[m[1;31m*[mappending to an existing JSON file:[1;31m*[m[1;31m*[m
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `<` Less than
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `<=` Less than or equal to
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `>` Greater than
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `>=` Greater than or equal to
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `=` Equal.  If no operator is specified, then equality is assumed,
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mwhich is satisfied by the [1;31m*[m[1;31m*[mintersection[1;31m*[m[1;31m*[m of all of the comparators
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mversion `1.2.3-alpha.7`, but it would [1;31m*[mnot[1;31m*[m be satisfied by
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mversion `3.4.5` [1;31m*[mwould[1;31m*[m satisfy the range, because it does not have a
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mclearly indicated the intent to use [1;31m*[mthat specific[1;31m*[m set of
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[msimilar risk on the [1;31m*[mnext[1;31m*[m set of prerelease versions.
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2.3 - 2.3.4` := `>=1.2.3 <=2.3.4`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2 - 2.3.4` := `>=1.2.0 <=2.3.4`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2.3 - 2.3` := `>=1.2.3 <2.4.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2.3 - 2` := `>=1.2.3 <3.0.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m#### X-Ranges `1.2.x` `1.X` `1.2.[1;31m*[m` `[1;31m*[m`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mAny of `X`, `x`, or `[1;31m*[m` may be used to "stand in" for one of the
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `[1;31m*[m` := `>=0.0.0` (Any non-prerelease version satisfies, unless
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.x` := `>=1.0.0 <2.0.0-0` (Matching major version)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2.x` := `>=1.2.0 <1.3.0-0` (Matching major and minor versions)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `""` (empty string) := `[1;31m*[m` := `>=0.0.0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1` := `1.x.x` := `>=1.0.0 <2.0.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `1.2` := `1.2.x` := `>=1.2.0 <1.3.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~1.2.3` := `>=1.2.3 <1.(2+1).0` := `>=1.2.3 <1.3.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~1.2` := `>=1.2.0 <1.(2+1).0` := `>=1.2.0 <1.3.0-0` (Same as `1.2.x`)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~1` := `>=1.0.0 <(1+1).0.0` := `>=1.0.0 <2.0.0-0` (Same as `1.x`)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~0.2.3` := `>=0.2.3 <0.(2+1).0` := `>=0.2.3 <0.3.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~0.2` := `>=0.2.0 <0.(2+1).0` := `>=0.2.0 <0.3.0-0` (Same as `0.2.x`)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~0` := `>=0.0.0 <(0+1).0.0` := `>=0.0.0 <1.0.0-0` (Same as `0.x`)
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `~1.2.3-beta.2` := `>=1.2.3-beta.2 <1.3.0-0` Note that prereleases in
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mversions `0.X >=0.1.0`, and [1;31m*[mno[1;31m*[m updates for versions `0.0.X`.
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[mHowever, it presumes that there will [1;31m*[mnot[1;31m*[m be breaking changes between
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `^1.2.3` := `>=1.2.3 <2.0.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `^0.2.3` := `>=0.2.3 <0.3.0-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `^0.0.3` := `>=0.0.3 <0.0.4-0`
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `^1.2.3-beta.2` := `>=1.2.3-beta.2 <2.0.0-0` Note that prereleases in
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m[1;31m*[m `^0.0.3-beta` := `>=0.0.3-beta <0.0.4-0`  Note that prereleases in the
+node_modules/@electron-forge/cli/node_modules/semver/README.md[36m:[m  `0.0.3` version [1;31m*[monly[1;31m*[m will be allowed, if they are greater th

@@ -1,0 +1,19 @@
+@import './color.pallet.scss';
+
+::-webkit-scrollbar{
+    width:5px;
+    height:5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: $COLOR_INTERACTIVE_DARKER;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: $COLOR_INTERACTIVE;
+}

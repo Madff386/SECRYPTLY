@@ -6,14 +6,11 @@ const apiCallbacks = require('./UI/callbacks/api.callback');
 
 
 
-const keys = new RSAKey();
-let enc = keys.encrypt("Hello worold");
-console.log(enc);
-console.log(keys.decrypt(enc));
-
-
 const secryptly = new Token;
-const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+const language = 'en-AU'  // TODO: read from either settings or system language
+const strings = require('./UI/strings.json')[language];
+
+
 
 
 require('./UI/lib/main');

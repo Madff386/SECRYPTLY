@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./UI/lib/main.css">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 127.0.0.1; script-src 'self'">
-    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://127.0.0.1:3001 https://127.0.0.1:3002; script-src 'self'; style-src * 'unsafe-inline'; connect-src 'self' http://127.0.0.1:3001">
+    <title>SECRYPTLY</title>
   </head>
   <body>
 
-    
+    <div id="mainAppRoot"></div>
     <div id="loginPannelRoot"></div>
     <script src="./bootstrap.js"></script>
 

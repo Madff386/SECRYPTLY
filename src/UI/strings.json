@@ -1,8 +1,44 @@
 {
     "en-AU":{
-        "loginText": "Login"
+        "loginButtonText": "Login",
+        "loginLinkText": "Login Instead",
+        "creatAccountText": "Create Account",
+        "emailPlaceholderText": "Email",
+        "passwordPlaceholderText": "Password",
+        "usernamePlaceholderText": "Username",
+        "confirmPasswordPlaceholderText": "Confirm Password",
+        "menu":{
+            "edit":"Edit",
+            "file": "File",
+            "settings": "Settings",
+            "exit": "Exit",
+            "undo": "Undo",
+            "redo": "Redo",
+            "cut": "Cut",
+            "copy": "Copy",
+            "paste": "Paste",
+            "selectAll": "Select All",
+            "window": "Window",
+            "minimise": "Minimise",
+            "close": "Close",
+            "help": "Help",
+            "learnMore": "Learn More",
+            "about": "About",
+            "hide": "Hide",
+            "services": "Services",
+            "hideOthers": "Hide Others",
+            "showAll": "Show All",
+            "quit": "Quit",
+            "bringAllToFront": "Bring All to Front"
+        },
+        "errors": {
+            "loginError": "Inncorrect Email or Password"
+        }
     },
     "en-GB":{
-        "loginText": "Login"
+        "loginButtonText": "Login",
+        "creatAccountText": "Create Account",
+        "emailPlaceholderText": "Email",
+        "passwordPlaceholderText": "Password"
     }
 }

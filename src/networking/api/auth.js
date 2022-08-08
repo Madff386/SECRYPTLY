@@ -2,10 +2,12 @@ const axios = require('axios');
 const apiCallbacks = require('../../UI/callbacks/api.callback');
 const settings = require('../../config.env');
 const logger = require('../../common/logging/logger');
+const RSAKey = require('../../cryptography/RSA').RSAKey;
 
 function Token(){
     let accessToken = '';
     let refreshToken = '';
+    let privateKey = '';
 
     this.login = (email, password) => { 
         return axios.post(settings.apiEndpoint + '/auth', {email: email, password: password})
@@ -14,14 +16,12 @@ function Token(){
                 refreshToken = response.data.refreshToken;
 
                 setTimeout(this.refresh.bind(this), settings.jwt_expiration_in_seconds*1000)
-            
+                
+                privateKey = new RSAKey(); //read from file
+                
                 return true;
             })
             .catch(error => {
-                if (error.response && error.response.status && error.response.status == 400){
-                    return false;
-                }
-                console.log(error.response.status);
                 return false;
             })
     }

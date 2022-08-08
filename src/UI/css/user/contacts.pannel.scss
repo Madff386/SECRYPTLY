@@ -1,0 +1,51 @@
+@import '../color.pallet.scss';
+
+.contact {
+    position:relative;
+    margin:1px;
+    width:50px;
+    height:50px;   
+    border-radius: 5px;
+    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+    color: $COLOR_OUTLINE_LIGHTER;
+    font: $FONT_GENERAL_UI;
+}
+
+.contact:hover{
+    color: $OFF_LIGHT_TEXT;
+    background-color: $COLOR_BACKGROUND_LIGHTER_2;
+}
+
+.username{
+    position: absolute;
+    left: 60px;
+    margin: 0px;
+    top: 4px;
+}
+
+.profile{
+    position: absolute;
+    height:40px;
+    width: 40px;
+    border-radius: 22px;
+    left: 5px;
+    top:5px;
+}
+
+#contactList{
+    margin-top:5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: absolute;
+    display:flex;
+    left:0px;
+    top:0px;
+    height: 100%;
+    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+}
+
+.unread{
+    border: 2px inset $COLOR_INTERACTIVE;
+    top: 3px !important;
+    left: 3px !important;
+}
