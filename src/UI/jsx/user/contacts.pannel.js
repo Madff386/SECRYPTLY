@@ -1,9 +1,8 @@
-const React = require('react');
-
+import React from "react";
 
 const contactsData = {user1: {username: "user1", read:true}, user2: {username: "user2", read:false}};
 
-class ContactsPannel extends React.Component {
+export class ContactsPannel extends React.Component {
 
 
     constructor(props) {
@@ -48,4 +47,3 @@ function Contact(props){
 }
 
 
-exports.ContactsPannel = ContactsPannel;

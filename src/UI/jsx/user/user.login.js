@@ -1,12 +1,6 @@
-const api = require('../../../networking/api/api');
-const React = require('react');
-const { useCallback } = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
 
-
-
-
-class LoginPannel extends React.Component {
+export class LoginPannel extends React.Component {
 
 
   constructor(props) {
@@ -73,11 +67,11 @@ class LoginForm extends React.Component {
     event.preventDefault();
     document.getElementById('panel').className += " loading";
     document.getElementById('loginError').innerText = '';
-    secryptly.login(this.state.email, this.state.password).then( success => {
+    window.api.ipcComm.invoke("LOGIN", {email: this.state.email, password: this.state.password}).then( success => {
       if (success){
         this.props.root.unmount();
       } else {
-        document.getElementById('loginError').innerText = strings.errors.loginError;
+        document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Email or Password");
       }
     })
     document.getElementById('panel').className -= " loading";
@@ -88,11 +82,11 @@ class LoginForm extends React.Component {
     
     return  (
       <form onSubmit={this.handleSubmit} id="loginForm">
-        <input id="emailField" type='text' placeholder={strings.emailPlaceholderText} name="email" onChange={this.handleInputChange} />
-        <input id="passwordField" type="password" placeholder={strings.passwordPlaceholderText} name="password" onChange={this.handleInputChange}/>
+        <input id="emailField" type='text' placeholder={window.api.i18n.t("Email")} name="email" onChange={this.handleInputChange} />
+        <input id="passwordField" type="password" placeholder={window.api.i18n.t("Password")} name="password" onChange={this.handleInputChange}/>
         <small className='error' id='loginError'></small>
-        <button className="submitButton" id="loginButton" type='submit' disabled={true}>{strings.loginButtonText}</button>
-        <p id='createAccount' onClick={() => {this.props.switchToCreate()}}>{strings.creatAccountText}</p>
+        <button className="submitButton" id="loginButton" type='submit' disabled={true}>{window.api.i18n.t("Login")}</button>
+        <p id='createAccount' onClick={() => {this.props.switchToCreate()}}>{window.api.i18n.t("Create Account")}</p>
       </form>
     )
   }
@@ -141,23 +135,22 @@ class CreateAccountForm extends React.Component {
   render(){
     return (
       <form onSubmit={this.handleSubmit} id="createForm">
-        <input id="emailCreateField" type='text' placeholder={strings.emailPlaceholderText} name="email" onChange={this.handleInputChange}/>
+        <input id="emailCreateField" type='text' placeholder={window.api.i18n.t("Email")} name="email" onChange={this.handleInputChange}/>
         <small id="emailError" className="error"></small>
 
-        <input id="usernameField" type='text' placeholder={strings.usernamePlaceholderText} name="username" onChange={this.handleInputChange}/>
+        <input id="usernameField" type='text' placeholder={window.api.i18n.t("Username")} name="username" onChange={this.handleInputChange}/>
         <small id="usernameError" className="error"></small>
 
-        <input id="passwordCreateField" type="password" placeholder={strings.passwordPlaceholderText} name="password" onChange={this.handleInputChange}/>
+        <input id="passwordCreateField" type="password" placeholder={window.api.i18n.t("Password")} name="password" onChange={this.handleInputChange}/>
         <small id="passwordError" className="error"></small>
 
-        <input id="confirmPasswordField" type="password" placeholder={strings.confirmPasswordPlaceholderText} name="confirmPassword" onChange={this.handleInputChange}/>
+        <input id="confirmPasswordField" type="password" placeholder={window.api.i18n.t("Confirm Password")} name="confirmPassword" onChange={this.handleInputChange}/>
         <small id="confirmError" className="error"></small>
 
-        <button className="submitButton" id='createButton' type='submit'>{strings.creatAccountText}</button>
-        <small id='loginLink' onClick={() => this.props.switchToLogin()}>{strings.loginLinkText}</small>
+        <button className="submitButton" id='createButton' type='submit'>{window.api.i18n.t("Create Account")}</button>
+        <small id='loginLink' onClick={() => this.props.switchToLogin()}>{window.api.i18n.t("Login Instead")}</small>
       </form>
     )
   }
 }
 
-exports.LoginPannel = LoginPannel;

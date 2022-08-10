@@ -25,5 +25,13 @@ exports.getUser = (userId) => {
     return secryptly.get('/users/' + userId, {});
 }
 
+exports.getUserExtended = (userId) => {
+    return secryptly.get('/users/' + userId + "/extended", {});
+}
 
+
+
+exports.sendMessage = (receiverId, message) => {
+    return secryptly.post('/messages/' + receiverId, message);
+}
 

@@ -1,8 +1,7 @@
-const React = require('react');
+import React from "react";
 
 
-
-class MessagesPannel extends React.Component {
+export class MessagesPannel extends React.Component {
 
 
     constructor(props) {
@@ -20,4 +19,3 @@ class MessagesPannel extends React.Component {
     }
 }
 
-exports.MessagesPannel = MessagesPannel;

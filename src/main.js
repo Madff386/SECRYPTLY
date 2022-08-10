@@ -1,11 +1,23 @@
-const { app, BrowserWindow, Menu} = require('electron');
+const { app, BrowserWindow, Menu, ipcMain} = require('electron');
 const { setupTitlebar, attachTitlebarToWindow } = require("custom-electron-titlebar/main");
-const language = 'en-AU' // TODO: read from either settings or system language
-const strings = require('./UI/strings.json')[language];
 const menu = require('./UI/menu').menu;
 const path = require('path');
+app.commandLine.appendSwitch('ignore-certificate-errors');
 
-app.commandLine.appendSwitch('ignore-certificate-errors')
+const { Token } = require('./networking/api/auth');
+const api = require('./networking/api/api');
+const {RSAKey} = require('./cryptography/RSA');
+const {AESKey} = require('./cryptography/AES');
+global.api = api;
+global.fileKey = new AESKey();
+global.messageKey = new RSAKey();
+global.secryptly = new Token();
+global.user = {};
+
+
+const ipcHandler = require('./ipc/ipc.handlers');
+
+
 
 setupTitlebar();
 
@@ -18,8 +30,9 @@ const createWindow = () => {
         backgroundColor: '#303236',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            nodeIntegration: true,
-            contextIsolation: false        
+            nodeIntegration: false,
+            contextIsolation: true,
+            enableRemoteModule: false,       
         }
     })
 
@@ -27,7 +40,7 @@ const createWindow = () => {
 
     win.webContents.openDevTools()
     
-    win.loadFile(path.join(__dirname, 'index.html'))
+    win.loadFile(path.join(__dirname, '../dist/index.html'))
 
     attachTitlebarToWindow(win);
     
@@ -44,4 +57,5 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
+
 

@@ -2,6 +2,7 @@
 
 
 #loginPannelRoot{
+    z-index: 100;
     @import './user/user.login';
 }
 
@@ -46,7 +47,7 @@
     & #messagePannel{
         background: $COLOR_BACKGROUND_LIGHTER_2;
         width: 100%;
-        height: calc(100% - 135px);
+        height: calc(100% - 165px);
         top: 65px;
         position: absolute;
         @import './messages/main.messages.pannel';
@@ -56,8 +57,8 @@
         position:absolute;
         background-color: $COLOR_BACKGROUND;
         width:100%;
-        height: 70px;
-        top: calc(100% - 70px);
+        height: 100px;
+        top: calc(100% - 100px);
         left: 0px;
         @import './info/info.bar';
     }

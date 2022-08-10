@@ -6,10 +6,38 @@ class RSAKey {
         const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
             // The standard secure default length for RSA keys is 2048 bits
             modulusLength: 2048,
+            publicKeyEncoding: {
+              type: "pkcs1",
+              format: "pem",
+            },
+            privateKeyEncoding: {
+              type: "pkcs1",
+              format: "pem",
+            },
           });
         this.publicKey = publicKey;
         this.privateKey = privateKey;
     }
+
+    exportKey(){
+      //export public and private keys to disk
+      return {
+        privateKey: this.privateKey,
+        publicKey: this.publicKey
+      }
+    }
+
+    importKey(key){
+      this.privateKey = key.privateKey;
+      this.publicKey = key.publicKey;
+      //import public and private keys from disk
+    }
+
+    importPublic(key){
+      this.publicKey = key;
+    }
+
+    
 
     encrypt(msg){
         const encryptedData = crypto.publicEncrypt(
@@ -33,7 +61,7 @@ class RSAKey {
             Buffer.from(msg, 'base64')
           );
           
-        console.log("decrypted data: ", decryptedData.toString());
+        return decryptedData.toString();
     }
 }
 

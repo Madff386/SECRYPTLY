@@ -1,70 +1,67 @@
 const { app, BrowserWindow, Menu, MenuItem, shell } = require('electron');
 
-const language = 'en-AU' // TODO: read from either settings or system language
-const strings = require('./strings.json')[language];
-
-
+const i18n = require('./i18n');
 
 
 const template = [
     {
-        label: strings.menu.edit,
+        label: i18n.t("Edit"),
         submenu: [
         {
-            label: strings.menu.undo,
+            label: i18n.t("Undo"),
             accelerator: 'CommandOrControl+Z',
             role: 'undo',
         },
         {
-            label: strings.menu.redo,
+            label: i18n.t("Redo"),
             accelerator: 'Shift+CommandOrControl+Z',
             role: 'redo',
         },
         { type: 'separator' },
         {
-            label: strings.menu.cut,
+            label: i18n.t("Cut"),
             accelerator: 'CommandOrControl+X',
             role: 'cut',
         },
         {
-            label: strings.menu.copy,
+            label: i18n.t("Copy"),
             accelerator: 'CommandOrControl+C',
             role: 'copy',
         },
         {
-            label: strings.menu.paste,
+            label: i18n.t("Paste"),
             accelerator: 'CommandOrControl+V',
             role: 'paste',
         },
         {
-            label: strings.menu.selectAll,
+            label: i18n.t("Select All"),
             accelerator: 'CommandOrControl+A',
             role: 'selectall',
         },
         ],
     },
     {
-        label: strings.menu.window,
+        label: i18n.t("Window"),
         submenu: [
         {
-            label: strings.menu.minimise,
+            label: i18n.t("Minimise"),
             accelerator: 'CommandOrControl+M',
             role: 'minimize',
         },
         {
-            label: strings.menu.close,
+            label: i18n.t("Close"),
             accelerator: 'CommandOrControl+W',
             role: 'close',
         },
         ],
     },
     {
-        label: strings.menu.help,
+        label: i18n.t("Help"),
         role: 'help',
         submenu: [
         {
             
-            label: strings.menu.learnMore,
+            label: i18n.t("Learn More"),
             click() {
                 require('electron').shell.openExternal("https://github.com/Madff386/secryptly_vJS")
              
@@ -84,45 +81,45 @@ if (process.platform === 'darwin') {
         label: name,
         submenu: [
         {
-            label: `${strings.menu.about} ${name}`,
+            label: `${i18n.t("About")} ${name}`,
             role: 'about',
         },
         { type: 'separator' },
         {
-            label: strings.menu.services,
+            label: i18n.t("Services"),
             role: 'services',
             submenu: [],
         },
         { type: 'separator' },
         {
-            label: `${strings.menu.hide} ${name}`,
+            label: `${i18n.t("Hide")} ${name}`,
             accelerator: 'Command+H',
             role: 'hide',
         },
         {
-            label: strings.menu.hideOthers,
+            label: i18n.t("Hide Others"),
             accelerator: 'Command+Alt+H',
             role: 'hideothers',
         },
         {
-            label: strings.menu.showAll,
+            label: i18n.t("Show All"),
             role: 'unhide',
         },
         { type: 'separator' },
         {
-            label: `${strings.menu.quit} ${name}`,
+            label: `${i18n.t("Quit")} ${name}`,
             accelerator: 'Command+Q',
             click() { app.quit(); },
         },
         ],
     });
 
-    const windowMenu = template.find(item => item.label === 'Window');
+    const windowMenu = template.find(item => item.label ===  i18n.t('Window'));
     windowMenu.role = 'window';
     windowMenu.submenu.push(
         { type: 'separator' },
         {
-            label: strings.menu.bringAlltoFront,
+            label: i18n.t("Bring All to Front"),
             type: 'text',
             role: 'front',
         }
@@ -130,25 +127,25 @@ if (process.platform === 'darwin') {
 }
 
 if (process.platform === 'win32'){
-    const helpMenu = template.find(item => item.label === 'Help');
+    const helpMenu = template.find(item => item.label === i18n.t('Help'));
     helpMenu.submenu.push(
         //{ type: 'separator' },
         {
-            label: strings.menu.about,
+            label: i18n.t("About"),
             role: 'about',
         }
     );
         
     template.unshift({
-        label: strings.menu.file,
+        label: i18n.t("File"),
         submenu: [
             {
-                label: strings.menu.settings,
+                label: i18n.t("Settings"),
                 role: 'hide',
             },
             { type: 'separator' },
             {
-                label: strings.menu.exit,
+                label: i18n.t("Exit"),
                 click() { app.quit(); },
             },
 
