@@ -31,7 +31,7 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
-    "electron": "^19.0.9"
+    "electron": "^20.0.1"
   },
   "dependencies": {
     "axios": "^0.27.2",
