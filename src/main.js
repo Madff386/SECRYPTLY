@@ -8,11 +8,14 @@ const { Token } = require('./networking/api/auth');
 const api = require('./networking/api/api');
 const {RSAKey} = require('./cryptography/RSA');
 const {AESKey} = require('./cryptography/AES');
+const {Store} = require('./storage/store');
+
 global.api = api;
-global.fileKey = new AESKey();
+global.fileKey = new AESKey("");
 global.messageKey = new RSAKey();
 global.secryptly = new Token();
-global.user = {};
+global.settings = new Store("settings");
+global.currentUserData = null;
 
 
 const ipcHandler = require('./ipc/ipc.handlers');

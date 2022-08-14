@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      username: '',
       password: ''
     };
 
@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
       [name]: value
     });
 
-    const canSubmit = document.getElementById('emailField').value != '' && document.getElementById('passwordField').value != '';
+    const canSubmit = document.getElementById('usernameLoginField').value != '' && document.getElementById('passwordField').value != '';
     document.getElementById('loginButton').disabled = !canSubmit;
   }
 
@@ -67,11 +67,15 @@ class LoginForm extends React.Component {
     event.preventDefault();
     document.getElementById('panel').className += " loading";
     document.getElementById('loginError').innerText = '';
-    window.api.ipcComm.invoke("LOGIN", {email: this.state.email, password: this.state.password}).then( success => {
+    window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( success => {
+      console.log(success);
       if (success){
+        window.api.ipcComm.invoke("GET_MSG", {from: "62f4a7561a888a5819d2be2e"}).then( response => {
+          console.log(response);
+        })
         this.props.root.unmount();
       } else {
-        document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Email or Password");
+        document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Username or Password");
       }
     })
     document.getElementById('panel').className -= " loading";
@@ -82,7 +86,7 @@ class LoginForm extends React.Component {
     
     return  (
       <form onSubmit={this.handleSubmit} id="loginForm">
-        <input id="emailField" type='text' placeholder={window.api.i18n.t("Email")} name="email" onChange={this.handleInputChange} />
+        <input id="usernameLoginField" type='text' placeholder={window.api.i18n.t("Username")} name="username" onChange={this.handleInputChange} />
         <input id="passwordField" type="password" placeholder={window.api.i18n.t("Password")} name="password" onChange={this.handleInputChange}/>
         <small className='error' id='loginError'></small>
         <button className="submitButton" id="loginButton" type='submit' disabled={true}>{window.api.i18n.t("Login")}</button>
@@ -127,8 +131,10 @@ class CreateAccountForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     document.getElementById('panel').className += " loading";
-    console.log(this.state.email + '   ' + this.state.password);
-    alert(this.state.email + '   ' + this.state.password);
+    // TODO: verify password and check confirm is the same
+    window.api.ipcComm.invoke("CREATE_ACCOUNT", this.state).then( response => {
+      console.log(response);
+    }) 
     document.getElementById('panel').className -= " loading";
   }
 

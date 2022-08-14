@@ -7,6 +7,11 @@ class AESKey{
         this.secretKey = secretKey;
     }
 
+    login(password){
+        const secretKey = crypto.scryptSync(password, 'GfG', 32);
+        this.secretKey = secretKey;
+    }
+
     importSecretKey(key){
         this.secretKey = key;
     }

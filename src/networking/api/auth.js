@@ -19,6 +19,7 @@ function Token(){
                 return true;
             })
             .catch(error => {
+                console.log(error.response.data);
                 return false;
             })
     }

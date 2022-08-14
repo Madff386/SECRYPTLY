@@ -23,7 +23,9 @@ function generateMessage(text, pubkey){
 }
 
 function seperateMessage(message){
-    
+    if (!message.key){
+        return undefined;
+    }
     let secretKey = messageKey.decrypt(message.key);
 
     let aesKey = new AESKey("");
@@ -37,11 +39,20 @@ function seperateMessage(message){
 }
 
 function sendMessage(text, receiverId){
-    let pubkey = api.getUser(receiverId).pubkey;
-    let message = generateMessage(text, pubkey);
-    api.sendMessage(receiverId, message);
+    return api.getUser(receiverId).then( response => {
+        let message = generateMessage(text, response.data.pubkey);
+        return api.sendMessage(receiverId, message);
+    })
+    
+}
+
+function retreiveMessage(fromId){
+    return api.retreiveMessage(fromId).then( response => {
+        return seperateMessage(response.data);
+    })
 }
 
 exports.generateMessage = generateMessage;
 exports.seperateMessage = seperateMessage;
 exports.sendMessage = sendMessage;
+exports.retreiveMessage = retreiveMessage;

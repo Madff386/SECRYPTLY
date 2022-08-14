@@ -3,13 +3,13 @@
 #sendBox{
     position:absolute;
     height:40px;
-    width: calc(50% - 70px);
-    left: calc(50% + 10px);
+    width: calc(100% - 300px);
+    left: 200px;
     top:20px;
     padding: 2px 2px 2px 10px;
     background-color: $COLOR_BACKGROUND_LIGHTER_2;
     border: solid 1px $COLOR_OUTLINE;
-    color: $COLOR_OUTLINE;
+    color: $LIGHT_TEXT;
     border-radius: 8px;
     font:$FONT_GENERAL_UI;
     font-size: 17px;
@@ -18,5 +18,4 @@
 #sendBox:focus{
     outline: none ! important;
     border-color: $COLOR_INTERACTIVE;
-    color:$LIGHT_TEXT;
 }

@@ -16,7 +16,7 @@ describe('RSA', function() {
     it('Encrypt then transfer keys then decrypt should be the same', function(done) {
         let key = new RSAKey();
 
-        let pubkey = key.exportKey().publicKey;
+        let pubkey = key.exportPublic();
         let enkey = new RSAKey();
         enkey.importPublic(pubkey);
 

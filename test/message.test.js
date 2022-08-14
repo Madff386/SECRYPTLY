@@ -8,7 +8,7 @@ describe('Message', function() {
     it('generate then seperate should be the same', function(done) {
         global.messageKey = new RSAKey();
         let string = "Hello world!";
-        pubkey = messageKey.exportKey().publicKey;
+        pubkey = messageKey.exportPublic();
         let message = generateMessage(string, pubkey);
         expect(seperateMessage(message)).to.equal(string);
         done();

@@ -35,3 +35,7 @@ exports.sendMessage = (receiverId, message) => {
     return secryptly.post('/messages/' + receiverId, message);
 }
 
+exports.retreiveMessage = (fromId) => {
+    return secryptly.get('/messages/received/' + fromId);
+}
+

@@ -22,19 +22,25 @@ class RSAKey {
     exportKey(){
       //export public and private keys to disk
       return {
-        privateKey: this.privateKey,
-        publicKey: this.publicKey
+        privateKey: fileKey.encrypt(this.privateKey),
+        publicKey: fileKey.encrypt(this.publicKey)
       }
     }
 
     importKey(key){
-      this.privateKey = key.privateKey;
-      this.publicKey = key.publicKey;
+      //decrypt with fileKey
+
+      this.privateKey = fileKey.decrypt(key.privateKey);
+      this.publicKey = fileKey.decrypt(key.publicKey);
       //import public and private keys from disk
     }
 
     importPublic(key){
       this.publicKey = key;
+    }
+
+    exportPublic(){
+      return this.publicKey;
     }
 
     
