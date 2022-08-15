@@ -16,6 +16,7 @@ global.messageKey = new RSAKey();
 global.secryptly = new Token();
 global.settings = new Store("settings");
 global.currentUserData = null;
+global.win = null;
 
 
 const ipcHandler = require('./ipc/ipc.handlers');
@@ -25,7 +26,7 @@ const ipcHandler = require('./ipc/ipc.handlers');
 setupTitlebar();
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 1000,
         height: 600,
         titleBarStyle: 'hidden',

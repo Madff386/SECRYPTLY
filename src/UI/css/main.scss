@@ -33,6 +33,7 @@
     @import './scroll.bar';
 
     & #contactPannel{
+        user-select: none;
         overflow-x: scroll;
         overflow-y: hidden;
         position: absolute;

@@ -29,6 +29,9 @@ contextBridge.exposeInMainWorld(
         },
         invoke: (channel, data) => {
           return ipcRenderer.invoke(channel, data);
+        },
+        once: (channel, callback) => {
+          ipcRenderer.once(channel, callback);
         }
     },
     i18n: {

@@ -7,7 +7,12 @@ ipcMain.handle("LOGIN", (event, data) => {
     currentUserData = new Store(data.username);
     fileKey.login(data.password);
     messageKey.importKey(currentUserData.get("messageKey"));
-    return secryptly.login(currentUserData.get("email"), data.password);
+    return secryptly.login(currentUserData.get("email"), data.password).then( success => {
+        if (success){
+            win.webContents.send("LOGGED_IN", data.username);
+        }
+        return success;
+    });
 });
 
 
@@ -39,4 +44,23 @@ ipcMain.handle("SEND_MSG", (event, data) => {
 
 ipcMain.handle("GET_MSG", (event, data) => {
     return retreiveMessage(data.from);
+})
+
+
+ipcMain.handle("GET_USER", (event, data) => {
+    return api.getUser(data.id).then( response => {
+        return response.data;
+    })
+})
+
+ipcMain.handle("GET_RECEIVED", (event, data) => {
+    return api.getReceived(data.id).then( response => {
+        return response.data;
+    })
+})
+
+ipcMain.handle("GET_SENT", (event, data) => {
+    return api.getSent(data.id).then( response => {
+        return response.data;
+    })
 })

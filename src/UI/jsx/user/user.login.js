@@ -68,7 +68,6 @@ class LoginForm extends React.Component {
     document.getElementById('panel').className += " loading";
     document.getElementById('loginError').innerText = '';
     window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( success => {
-      console.log(success);
       if (success){
         window.api.ipcComm.invoke("GET_MSG", {from: "62f4a7561a888a5819d2be2e"}).then( response => {
           console.log(response);

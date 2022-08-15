@@ -39,3 +39,10 @@ exports.retreiveMessage = (fromId) => {
     return secryptly.get('/messages/received/' + fromId);
 }
 
+exports.getReceived = () => {
+    return secryptly.get('/messages/received');
+}
+
+exports.getSent = () => {
+    return secryptly.get('/messages/sent');
+}
