@@ -11,6 +11,7 @@ export class MessagesPannel extends React.Component {
       out: "",
       isRender: false,
       isLightTheme: false,
+      user: null,
     }
 
     this.focusSend = this.focusSend.bind(this);
@@ -20,6 +21,10 @@ export class MessagesPannel extends React.Component {
   componentDidMount(){
 
     window.api.ipcComm.on("SWITCH_CONTACT", (user) =>{
+      this.setState({
+        ...this.state,
+        user: user.id,
+      })
       window.api.ipcComm.invoke("GET_MSG", { from: user.id }).then(((response) => {
         this.setState({...this.state, in: response });
       }))
@@ -39,7 +44,7 @@ export class MessagesPannel extends React.Component {
     window.api.ipcComm.on("PING", (data) =>{
       if (data == "SEND_MSG"){
         const msg = this.state.out;
-        window.api.ipcComm.invoke("SEND_MSG", { to: "62f4a7561a888a5819d2be2e", text: msg }).then((response) => {
+        window.api.ipcComm.invoke("SEND_MSG", { to: this.state.user, text: msg }).then((response) => {
           console.log(response);
         });
       }

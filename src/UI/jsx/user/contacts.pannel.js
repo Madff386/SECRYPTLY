@@ -9,7 +9,10 @@ export class ContactsPannel extends React.Component {
       this.state = {
         contactsAll: [],
         time: Date.now(),
+        selected: null,
       }
+
+      this.switchContact = this.switchContact.bind(this);
     }
 
     async getData() {
@@ -39,11 +42,11 @@ export class ContactsPannel extends React.Component {
         
         let stored = await window.api.ipcComm.invoke("GET_STORED", {});
         for (var key in stored){
-            let id = stored[key];
-            if (!contacts.some(e => e.id == id)){
+            let user = stored[key];
+            if (!contacts.some(e => e.id == user.id)){
                 contacts.push({
-                    id:id,
-                    time: new Date().toString(),
+                    id:user.id,
+                    time: user.time,
                 });
             }
         }
@@ -52,11 +55,22 @@ export class ContactsPannel extends React.Component {
             return new Date(second.time) - new Date(first.time);
            });
         
+
         this.setState({
             ...this.state,
-            contactsAll: contacts
+            contactsAll: contacts,
+            selected: contacts[0].id,
         })
+
+        window.api.ipcComm.send("SWITCH_CONTACT", {id: contacts[0].id});
         
+    }
+
+    switchContact(id){
+        this.setState({
+            ...this.state,
+            selected: id,
+        })
     }
 
     componentDidMount(){
@@ -80,23 +94,19 @@ export class ContactsPannel extends React.Component {
       return (
         <div id="contactPannel">
             <div id='contactList'>
-            {Contacts(this.state.contactsAll, this.state.time)}
+            {Contacts(this.state.contactsAll, this.state.time, this.switchContact, this.state.selected)}
             </div>
         </div>
       );
     }
 }
 
-function Contacts(contactsAll, time){
+function Contacts(contactsAll, time, switchContact, selected){
     let contacts = []
 
     contacts.push(<AddContact key="add"/>)
     for (var key in contactsAll){
-        if (key == 1) {
-            contacts.push(<Contact userId={contactsAll[key].id} key={contactsAll[key].id} first={true} time={time}/>);
-        } else {
-            contacts.push(<Contact userId={contactsAll[key].id} key={contactsAll[key].id} first={false} time={time}/>);
-        }
+        contacts.push(<Contact userId={contactsAll[key].id} key={contactsAll[key].id} time={time} selected={selected} switchContact={switchContact}/>);
     }
     return contacts;
 }
@@ -169,9 +179,6 @@ function Contact(props){
                 ...prev,
                 username: response.username,
             }));
-            if (props.first) {
-                window.api.ipcComm.send("SWITCH_CONTACT", {...user, username: response.username });
-            }
         }
     }
 
@@ -186,6 +193,7 @@ function Contact(props){
 
     const switchContact = (event) => {
         window.api.ipcComm.send("SWITCH_CONTACT", user);
+        props.switchContact(user.id);
     }
     
     if (!user.exists) {
@@ -193,7 +201,7 @@ function Contact(props){
     }
 
     return (
-        <div className="contact" onContextMenu={contextMenu} onClick={switchContact}>
+        <div className={"contact " + ((props.selected == props.userId) ? "selected" : "" )} onContextMenu={contextMenu} onClick={switchContact}>
             <img className={'profile ' + ((user.read) ? '': 'unread')} alt={user.username + "'s profile picture"} src={"https://127.0.0.1:3002/resources/profilePicture/" + props.userId + "?time=" + props.time}/>
         </div>
     )

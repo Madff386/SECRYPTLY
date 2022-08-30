@@ -12,10 +12,16 @@
     font: $FONT_GENERAL_UI;
 }
 
+.contact.selected{
+    background-color: $COLOR_SURFACE_08dp;
+}
+
 .contact:hover{
     background-color: $COLOR_SURFACE_04dp;
     cursor: pointer;
 }
+
+
 
 .profile{
     position: absolute;

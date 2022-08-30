@@ -55,6 +55,7 @@ ipcMain.handle("SEND_MSG", (event, data) => {
     return sendMessage(data.text, data.to).then( response => {
         return {error: null};
     }).catch( error => {
+        console.log(error);
         return error.response.data;
     })
 })
@@ -108,7 +109,7 @@ ipcMain.handle("ADD_CONTACT", (event, data) => {
     let contacts = currentUserData.get("contacts");
     return api.getUserId(data).then( response => {
         if (!contacts.includes(response.data.id)){
-            contacts.push(response.data.id);
+            contacts.push({id: response.data.id, time: new Date().toString()});
             currentUserData.set("contacts", contacts);
             win.webContents.send("ADD_CONTACT", {});
             return true;
