@@ -50,7 +50,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.54.1",
+    "sass": "^1.54.6",
     "save-dev": "^0.0.1-security"
   },
   "config": {
