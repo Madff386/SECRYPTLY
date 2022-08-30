@@ -1,4 +1,27 @@
-@import '../color.pallet.scss';
+@import "../color.pallet/color.pallet.scss";
+
+::-webkit-scrollbar{
+    width:5px;
+    height:5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: $COLOR_BACKGROUND;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba($ON_BACKGROUND, $EMPHASIS_FILLED_DISABLED);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba($ON_BACKGROUND, $EMPHASIS_FILLED_DISABLED + 10%);
+}
+
+
+::-webkit-scrollbar-corner{
+    background-color: $COLOR_BACKGROUND;
+}
 
 #seperator{
     position: absolute;
@@ -6,7 +29,7 @@
     left: calc(50% - 1px);
     width:2px;
     height:100%;
-    background-color: $COLOR_OUTLINE;
+    background-color: rgba($ON_BACKGROUND, $EMPHASIS_DISABLED);
 
 }
 
@@ -16,6 +39,12 @@
     top:0px;
     position:absolute;
     height:100%;
+    display: flex;
+    align-items: flex-start;
+    font: $FONT_GENERAL_UI;
+    color: $ON_BACKGROUND;
+    cursor: default !important;
+    overflow: auto;
 }
 
 #outgoingMessagePannel{
@@ -24,4 +53,34 @@
     top:0px;
     position:absolute;
     height:100%;
+    display: flex;
+    align-items: flex-start;
+    font: $FONT_GENERAL_UI;
+    color: $ON_BACKGROUND;
+    cursor: text;
+    overflow: auto;
+}
+
+#inMsg, #outMsg{
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    padding: 20px;
+    width: calc(100% - 40px);
+}
+
+
+#outMsgInput{
+    background-color: $COLOR_BACKGROUND;
+    border: none;
+    outline:none !important;
+    color: $ON_BACKGROUND;
+    resize: none;
+    font-size: 16px;
+    width: 100%;
+    
+}
+
+pre > div{
+    font-size: 15px;
+    @include shadow-2dp-inset;
 }

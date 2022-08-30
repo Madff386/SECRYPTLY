@@ -1,0 +1,100 @@
+
+
+
+
+
+@import './dark.scss';
+@import './light.scss';
+
+
+
+$EMPHASIS_HIGH: 87%;
+$EMPHASIS_MEDIUM: 60%;
+$EMPHASIS_DISABLED: 38%;
+$EMPHASIS_FILLED_DISABLED: 12%;
+
+
+/* Shadows */
+
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
+@mixin shadow-2dp-inset() {
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+        inset 0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+        inset 0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+
+@mixin shadow-2dp() {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+        0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+        0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+
+@mixin shadow-3dp() {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+        0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+        0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin shadow-4dp() {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+        0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+        0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-6dp() {
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+            0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+            0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-8dp() {
+box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+            0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+            0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-16dp() {
+box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+            0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+            0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-24dp() {
+box-shadow: 0  9px 46px  8px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+            0 11px 15px -7px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+            0 24px 38px  3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+
+$COLOR_OUTLINE: #677078FF;
+$COLOR_OUTLINE_LIGHTER: #879098FF;
+$COLOR_OUTLINE_DARKER: #475058FF;
+$COLOR_INTERACTIVE: #01ADEEFF;
+$COLOR_INTERACTIVE_DARKER: #264B9AFF;
+$LIGHT_TEXT: #FFFFFF;
+$OFF_LIGHT_TEXT: #E5E5E5FF;
+$HEADER_COLOR: #303032FF;
+$HEADER_COLOR_LIGHTER: #3A3A3CFF;
+
+$FONT_GENERAL_UI_FAMILY: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$FONT_GENERAL_UI: 20px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$FONT_FORGOT_PASSWORD: 12px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$FONT_ERROR: 12px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

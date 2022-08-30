@@ -69,13 +69,12 @@ class LoginForm extends React.Component {
     document.getElementById('loginError').innerText = '';
     window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( success => {
       if (success){
-        window.api.ipcComm.invoke("GET_MSG", {from: "62f4a7561a888a5819d2be2e"}).then( response => {
-          console.log(response);
-        })
         this.props.root.unmount();
       } else {
         document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Username or Password");
       }
+    }).catch( err => {
+      document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Username or Password");
     })
     document.getElementById('panel').className -= " loading";
   }
@@ -130,21 +129,42 @@ class CreateAccountForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     document.getElementById('panel').className += " loading";
-    // TODO: verify password and check confirm is the same
-    window.api.ipcComm.invoke("CREATE_ACCOUNT", this.state).then( response => {
-      console.log(response);
-    }) 
+    document.getElementById('confirmError').innerText = '';
+    document.getElementById('emailError').innerText = '';
+    document.getElementById('usernameError').innerText = '';
+    document.getElementById('passwordError').innerText = '';
+
+    if (document.getElementById('usernameField').value == '') {
+      document.getElementById('usernameError').innerText = 'username can\'t be blank';
+
+    } else if (document.getElementById('emailCreateField').value == '') {
+      document.getElementById('emailError').innerText = 'email can\'t be blank';
+
+    } else if (document.getElementById('passwordCreateField').value == '') {
+      document.getElementById('passwordError').innerText = 'password can\'t be blank';
+
+    } else if (document.getElementById('passwordCreateField').value != document.getElementById('confirmPasswordField').value) {
+      document.getElementById('confirmError').innerText = 'passwords are not the same';
+    } else {
+      window.api.ipcComm.invoke("CREATE_ACCOUNT", this.state).then( response => {
+        if (response.error) {
+          document.getElementById(response.field + "Error").innerText = response.error;
+        } else {
+          console.log("good");
+        }
+      })
+    }
     document.getElementById('panel').className -= " loading";
   }
 
   render(){
     return (
       <form onSubmit={this.handleSubmit} id="createForm">
-        <input id="emailCreateField" type='text' placeholder={window.api.i18n.t("Email")} name="email" onChange={this.handleInputChange}/>
-        <small id="emailError" className="error"></small>
-
         <input id="usernameField" type='text' placeholder={window.api.i18n.t("Username")} name="username" onChange={this.handleInputChange}/>
         <small id="usernameError" className="error"></small>
+
+        <input id="emailCreateField" type='text' placeholder={window.api.i18n.t("Email")} name="email" onChange={this.handleInputChange}/>
+        <small id="emailError" className="error"></small>
 
         <input id="passwordCreateField" type="password" placeholder={window.api.i18n.t("Password")} name="password" onChange={this.handleInputChange}/>
         <small id="passwordError" className="error"></small>

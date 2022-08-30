@@ -4,6 +4,7 @@ const logger = require('../../common/logging/logger');
 const RSAKey = require('../../cryptography/RSA').RSAKey;
 const https = require('https');
 const agent = new https.Agent({ rejectUnauthorized: false });
+const FormData = require('form-data');
 
 function Token(){
     let accessToken = '';
@@ -19,7 +20,7 @@ function Token(){
                 return true;
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.error(error);
                 return false;
             })
     }
@@ -82,12 +83,24 @@ function Token(){
     this.delete = (apiPath, body) => {
         return axios.delete(settings.apiEndpoint + apiPath, body, {
             headers: {
-                Authorization: 'Bearer ' + this.accessToken
+                Authorization: 'Bearer ' + accessToken
             }, 
             httpsAgent: agent
 
         })
     }
+
+    this.put = (apiPath, file, filetype) => {
+        let formData = new FormData();
+        formData.append(filetype, file);
+        return axios.put(settings.apiEndpoint + apiPath, formData, {
+            headers: {
+                Authorization: 'Bearer ' + accessToken,
+                'Content-Type': 'multipart/form-data',
+            },
+            httpsAgent: agent
+        })
+    } 
 }
 
 

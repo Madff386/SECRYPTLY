@@ -154,7 +154,20 @@ if (process.platform === 'win32'){
 }
       
       
-  
+exports.contactsContextMenu = (user) => {
+    let menu = new Menu();
+    menu.append(new MenuItem({
+        label: user.username
+    }));
+    menu.append(new MenuItem({
+        type: 'separator'
+    }));
+    menu.append(new MenuItem({
+        label: "id: " + user.id
+    }));
+    return menu;
+}
+    
 
 
 exports.menu = Menu.buildFromTemplate(template);;

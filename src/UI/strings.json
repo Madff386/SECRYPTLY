@@ -30,6 +30,21 @@
         "Quit": "Quit",
         "Bring All to Front": "Bring All to Front",
 
-        "Inncorrect Email or Password": "Inncorrect Email or Password"
+        "Inncorrect Username or Password": "Inncorrect Username or Password",
+        
+        
+
+        "myAccount": "My Account",
+        "Add": "Add",
+        "Phone Number": "Phone Number",
+        "First Name": "First Name",
+        "Last Name": "Last Name",
+        "Change Password": "Change Password",
+        "Delete Account": "Delete Account",
+        "Password and Authentication": "Password and Authentication",
+        "Account Removal": "Account Removal",
+        "Deleting your account will permenantly remove it, there is no way to undo this action.": "Deleting your account will permenantly remove it, there is no way to undo this action.",
+
+        "appearance": "Appearance"
     }
 }

@@ -15,6 +15,7 @@ global.fileKey = new AESKey("");
 global.messageKey = new RSAKey();
 global.secryptly = new Token();
 global.settings = new Store("settings");
+settings.create();
 global.currentUserData = null;
 global.win = null;
 
@@ -22,6 +23,8 @@ global.win = null;
 const ipcHandler = require('./ipc/ipc.handlers');
 
 
+  
+  
 
 setupTitlebar();
 
@@ -29,6 +32,8 @@ const createWindow = () => {
     win = new BrowserWindow({
         width: 1000,
         height: 600,
+        minWidth: 820,
+        minHeight: 450,
         titleBarStyle: 'hidden',
         thickFrame:false,
         backgroundColor: '#303236',
@@ -39,6 +44,16 @@ const createWindow = () => {
             enableRemoteModule: false,       
         }
     })
+
+    const handleRedirect = (e, url) => {
+        if(url != win.webContents.getURL()) {
+          e.preventDefault()
+          require('electron').shell.openExternal(url)
+        }
+    }
+    
+    win.webContents.on('will-navigate', handleRedirect)
+    win.webContents.on('new-window', handleRedirect)
 
     Menu.setApplicationMenu(menu);
 

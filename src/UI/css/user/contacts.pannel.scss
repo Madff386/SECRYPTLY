@@ -1,4 +1,6 @@
-@import '../color.pallet.scss';
+@import "../color.pallet/color.pallet.scss";
+
+
 
 .contact {
     position:relative;
@@ -6,22 +8,13 @@
     width:50px;
     height:50px;   
     border-radius: 5px;
-    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
-    color: $COLOR_OUTLINE_LIGHTER;
+    background-color: $COLOR_SURFACE_02dp;
     font: $FONT_GENERAL_UI;
 }
 
 .contact:hover{
-    color: $OFF_LIGHT_TEXT;
-    background-color: $COLOR_BACKGROUND_LIGHTER_2;
+    background-color: $COLOR_SURFACE_04dp;
     cursor: pointer;
-}
-
-.username{
-    position: absolute;
-    left: 60px;
-    margin: 0px;
-    top: 4px;
 }
 
 .profile{
@@ -42,20 +35,61 @@
     left:0px;
     top:0px;
     height: 100%;
-    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+    background-color: $COLOR_SURFACE_02dp;
 }
 
 .unread{
-    border: 2px inset $COLOR_INTERACTIVE;
+    border: 2px inset $COLOR_SECONDARY;
     top: 3px !important;
     left: 3px !important;
 }
 
+#addContact{
+    overflow: hidden;
+    transition: width 500ms;
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+}
+
+#addContact:hover{
+    cursor: default;
+    color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+}
 
 #addContactSymbol{
+    transition: transform 500ms;
     top: -14px;
     left: 8px;
-    position: relative;
+    position: absolute;
     font-size: 50px;
     cursor: pointer;
 }
+
+#addUserInput{
+    padding-left: 8px;
+    font-size: 15px;
+    position: absolute;
+    transition: width 400ms;
+    transition-delay: 100ms;
+    width: 0px;
+    left: 50px;
+    background-color: $COLOR_SURFACE_06dp;
+    color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    border: none;
+    border-radius: 8px;
+    outline: none !important;
+    height: 30px;
+    top: 10px;
+}
+
+#addContact.adding{
+    width: 200px;
+
+    & #addContactSymbol{
+        transform: rotate(45deg);
+    }
+
+    & #addUserInput{
+       width: 130px;
+    }
+}
+

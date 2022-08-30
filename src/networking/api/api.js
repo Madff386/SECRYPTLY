@@ -1,5 +1,5 @@
-
-
+const fs = require('fs');
+const path = require('path');
 
 exports.login = (email, password) => {
     return secryptly.login(email, password);
@@ -45,4 +45,15 @@ exports.getReceived = () => {
 
 exports.getSent = () => {
     return secryptly.get('/messages/sent');
+}
+
+
+
+exports.setProfilePicture = (filePath) => {
+    if (path.extname(filePath).toLowerCase() === '.png') {
+        return secryptly.put('/resources/profilePicture', fs.createReadStream(filePath), 'image');
+    }
+    return new Promise(function(resolve, reject){
+        resolve(false);
+    });
 }

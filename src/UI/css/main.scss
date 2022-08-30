@@ -1,4 +1,4 @@
-@import "./color.pallet.scss";
+@import "./color.pallet/color.pallet.scss";
 
 
 #loginPannelRoot{
@@ -28,7 +28,7 @@
     top:0px;
     height: 100%;
     width: 100%;
-    background-color: $COLOR_BACKGROUND_LIGHTER_2;
+    background-color: $COLOR_SURFACE_00dp;
 
     @import './scroll.bar';
 
@@ -41,14 +41,15 @@
         top:0px;
         width:100%;
         height:65px;
-        background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+        background-color: $COLOR_SURFACE_02dp;
+        @include shadow-2dp;
         @import './user/contacts.pannel';
     }
 
     & #messagePannel{
-        background: $COLOR_BACKGROUND_LIGHTER_2;
+        background: $COLOR_BACKGROUND;
         width: 100%;
-        height: calc(100% - 151px);
+        height: calc(100% - 125px);
         top: 65px;
         position: absolute;
         @import './messages/main.messages.pannel';
@@ -56,11 +57,24 @@
 
     & #infoPannel{
         position:absolute;
-        background-color: $COLOR_BACKGROUND;
+        @include shadow-2dp;
+        background-color: $COLOR_SURFACE_03dp;
         width:100%;
-        height: 86px;
-        top: calc(100% - 86px);
+        height: 60px;
+        top: calc(100% - 60px);
         left: 0px;
         @import './info/info.bar';
+    }
+
+    & #settings{
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: $COLOR_SURFACE_03dp;
+        @import './info/settings';
     }
 }

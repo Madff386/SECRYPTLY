@@ -7,7 +7,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "build": "sass src/UI/css/main.scss dist/main.css && webpack --mode=development",
+    "build": "sass src/UI/css/light_main.scss:dist/light_main.css src/UI/css/dark_main.scss:dist/dark_main.css && webpack --mode=development",
     "test": "mocha"
   },
   "repository": {
@@ -44,9 +44,12 @@
     "chai": "^4.3.6",
     "custom-electron-titlebar": "^4.1.0",
     "electron-squirrel-startup": "^1.0.0",
+    "file-loader": "^6.2.0",
     "mocha": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.3",
+    "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.54.1",
     "save-dev": "^0.0.1-security"
   },

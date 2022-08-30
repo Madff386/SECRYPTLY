@@ -1,4 +1,4 @@
-@import './color.pallet.scss';
+@import "./color.pallet/color.pallet.scss";
 
 ::-webkit-scrollbar{
     width:5px;
@@ -6,14 +6,14 @@
 }
 
 ::-webkit-scrollbar-track{
-    background-color: $COLOR_BACKGROUND_LIGHTER_HOVER;
+    background-color: $COLOR_SURFACE_02dp;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: $COLOR_INTERACTIVE_DARKER;
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED);
     border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover{
-    background-color: $COLOR_INTERACTIVE;
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED + 10%);
 }

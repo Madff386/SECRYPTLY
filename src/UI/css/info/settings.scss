@@ -1,0 +1,154 @@
+@import "../color.pallet/color.pallet.scss";
+
+
+::-webkit-scrollbar{
+    width:5px;
+    height:5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: $COLOR_SURFACE_03dp;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED + 10%);
+}
+
+#navigation{
+    min-width: 200px;
+    height: calc(100% - 60px);
+    top: 30px;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1s;
+
+    
+}
+
+#seperator{
+    position: relative;
+    top: 30px;
+    width: 1px;
+    height: calc(100% - 60px);
+    background-color: rgba($ON_SURFACE, $EMPHASIS_DISABLED);
+}
+
+ul{
+    list-style: none;
+    width: 195px;
+    padding: 0px;
+    margin: 0px;
+    right: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    position: absolute;
+    font: $FONT_GENERAL_UI;
+}
+
+li{
+    color:rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    background-color: $COLOR_SURFACE_03dp;
+    width: calc(100% - 20px);
+    height: 40px;
+    margin-top: 2px;
+    border: none;
+    border-radius: 8px;
+    padding-left: 20px;
+    
+
+}
+
+li:hover{
+    color:rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    background-color: $COLOR_SURFACE_06dp;
+    cursor: pointer;
+}
+
+li.selected{
+    color:rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    background-color: $COLOR_SURFACE_08dp;
+}
+
+li p{
+    position: relative;
+    top: 5px;
+    margin: 0px;
+}
+
+#settingsPage{
+
+    & #myAccount{
+        @import "./settings.myAccount";
+    }
+
+    & #appearance{
+        @import "./settings.appearance";
+    }
+
+    flex-basis: 650px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    position: relative;
+    top: 30px;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    font: $FONT_GENERAL_UI;
+}
+
+#settingsPage h1{
+    font-size: 30px;
+    position: relative;
+    left: 40px;
+}
+
+hr{
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED);
+    margin: 30px 0px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0);
+}
+
+#settingsPage > div{
+    position: relative;
+    max-width: 620px;
+    min-width: 400px;
+    padding: 0px 40px;        
+}
+
+p{
+    font-size: 15px;
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+}
+
+#exit{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: $COLOR_SURFACE_06dp;
+    color:rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    border: 2px solid rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    @include shadow-2dp;
+
+    & span{
+        font-size: 50px;
+        position: relative;
+        top: -5px;
+    }
+
+    &:hover{
+        @include shadow-3dp;
+        background-color: $COLOR_SURFACE_08dp;
+        color:rgba($ON_SURFACE, $EMPHASIS_HIGH);
+        border-color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+        cursor: pointer;
+    }
+}

@@ -8,9 +8,14 @@ class Store{
     constructor(name) {
         const userDataPath = electron.app.getPath('userData');
         this.path = path.join(userDataPath, name + '.json');
+        this.exists = fs.existsSync(this.path);
+    }
+
+    create(){
         if (!fs.existsSync(this.path)){
             fs.writeFileSync(this.path, JSON.stringify({}, null, 2));
         }
+        this.exists = true;
     }
 
     set(key, val){
