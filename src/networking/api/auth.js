@@ -9,20 +9,30 @@ const FormData = require('form-data');
 function Token(){
     let accessToken = '';
     let refreshToken = '';
+    let timeout;
 
     this.login = (email, password) => { 
         return axios.post(settings.apiEndpoint + '/auth', {email: email, password: password}, {httpsAgent: agent})
             .then(response => {
                 accessToken = response.data.accessToken;
                 refreshToken = response.data.refreshToken;
-                setTimeout(this.refresh.bind(this), settings.jwt_expiration_in_seconds*1000)
+                timeout = setTimeout(this.refresh.bind(this), settings.jwt_expiration_in_seconds*1000)
                                 
                 return true;
             })
             .catch(error => {
+                if (error.response && error.response.status && error.response.status == 400){
+                    return false;
+                }
                 console.error(error);
                 return false;
             })
+    }
+
+    this.logout = () => {
+        clearTimeout(timeout);
+        accessToken = '';
+        refreshToken = '';
     }
 
     this.refresh = () => {
@@ -38,7 +48,7 @@ function Token(){
             accessToken = response.data.accessToken;
             refreshToken = response.data.refreshToken;
         
-            setTimeout(this.refresh.bind(this), settings.jwt_expiration_in_seconds * 1000)
+            timeout = setTimeout(this.refresh.bind(this), settings.jwt_expiration_in_seconds * 1000)
         
         }).catch(error => {
             if (error.response && error.response.status && error.response.status == 400) {
@@ -80,8 +90,8 @@ function Token(){
         })
     }
 
-    this.delete = (apiPath, body) => {
-        return axios.delete(settings.apiEndpoint + apiPath, body, {
+    this.delete = (apiPath) => {
+        return axios.delete(settings.apiEndpoint + apiPath, {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }, 
@@ -101,6 +111,22 @@ function Token(){
             httpsAgent: agent
         })
     } 
+
+    this.stream = (apiPath, callback) => {
+        axios.get(settings.apiEndpoint + apiPath, {
+            headers: {
+                Authorization: 'Bearer ' + accessToken,
+            },
+            httpsAgent: agent,
+            responseType: 'stream'
+        }).then(response => {
+            const stream = response.data;
+            stream.on('data',  data => {
+                callback(data);
+            });
+        })
+        
+    }
 }
 
 

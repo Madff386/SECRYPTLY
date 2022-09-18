@@ -1,0 +1,117 @@
+@import '../color.pallet/color.pallet.scss';
+
+#modal{
+    width: 400px;
+    left: calc(50% - 200px);
+    top: calc(50% - 100px);
+    height: fit-content;
+    position: absolute;
+    padding:20px;
+    border-radius: 8px;
+    @include shadow-8dp;
+    background-color: $COLOR_SURFACE_12dp;
+    font: $FONT_GENERAL_UI;
+}
+
+h1{
+    color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    margin: 0px;
+    font-size: 24px;
+}
+
+p{
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+}
+
+.noneInput, .noneButton{
+    display: none;
+}
+
+.textInput, .passwordInput{
+    margin-bottom: 15px;
+    margin-left: 10px;
+    padding: 5px 5px 5px 10px;
+    display: block;
+    background-color: $COLOR_SURFACE_12dp;
+    outline: none !important;
+    border: none;
+    width: calc(100% - 40px);
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    font-size: 18px;
+    border-bottom: 1px solid rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+
+
+    &:focus{
+        border-bottom: 1px solid $COLOR_PRIMARY;
+        color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    }
+
+    &:hover{
+        color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+        border-bottom: 1px solid rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    }
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    outline: none !important;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.confirmButton{
+    background-color: $COLOR_PRIMARY;
+    color: rgba($ON_PRIMARY, $EMPHASIS_MEDIUM);
+
+    &:hover{
+        background-color: $COLOR_PRIMARY_VARIANT;
+        color: rgba($ON_PRIMARY, $EMPHASIS_HIGH);
+    }
+}
+
+.cancelButton{
+    border: 1px solid rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    background-color: $COLOR_SURFACE_16dp;
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+
+    &:hover{
+        border: 1px solid rgba($ON_SURFACE, $EMPHASIS_HIGH);
+        background-color: $COLOR_SURFACE_24dp;
+        color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
+    }
+}
+
+.okButton{
+    background-color: $COLOR_PRIMARY;
+    color: rgba($ON_PRIMARY, $EMPHASIS_MEDIUM);
+
+    &:hover{
+        background-color: $COLOR_PRIMARY_VARIANT;
+        color: rgba($ON_PRIMARY, $EMPHASIS_HIGH);
+    }
+}
+
+.deleteButton{
+    font-weight: 600;
+    background-color: $COLOR_ERROR;
+    color: rgba($ON_ERROR, $EMPHASIS_MEDIUM);
+
+    &:hover{
+        background-color: $COLOR_ERROR;
+        color: rgba($ON_ERROR, $EMPHASIS_HIGH);
+    }
+}
+
+#error{
+    font-size: 12px;
+    margin-left: 10px;
+    color: $COLOR_ERROR;
+}

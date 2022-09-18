@@ -1,0 +1,8 @@
+$THEME: "dark";
+@import './main.scss';
+
+
+@media (prefers-color-scheme: light) {
+    $THEME: "light";
+    @import './main.scss';
+}

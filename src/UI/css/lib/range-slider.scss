@@ -1,0 +1,36 @@
+
+
+.rangeContainer{
+    width: 100%;
+}
+
+.rangeSlider{
+    z-index: 10;
+    position: absolute;
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 5px;
+    height: 10px;
+    background-color: rgba($ON_SURFACE, $EMPHASIS_FILLED_DISABLED);
+}
+
+.rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 20px;
+    background: $COLOR_PRIMARY;
+    cursor: ew-resize;
+}
+
+.rangeSlider::-webkit-slider-thumb:hover {
+    background: $COLOR_PRIMARY_VARIANT;
+}
+
+.rangeContainer .rangeProgress {
+    position:absolute;
+    background-color: $COLOR_SECONDARY;
+    height: 10px;
+    margin: 2px;
+    border-radius: 5px;
+}

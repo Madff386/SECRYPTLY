@@ -1,4 +1,4 @@
-@import "../color.pallet/color.pallet.scss";
+@import "../../color.pallet/color.pallet.scss";
 
 
 ::-webkit-scrollbar{
@@ -76,7 +76,7 @@ li.selected{
 
 li p{
     position: relative;
-    top: 5px;
+    top: 10px;
     margin: 0px;
 }
 
@@ -102,9 +102,25 @@ li p{
 }
 
 #settingsPage h1{
+    color: rgba($ON_SURFACE, $EMPHASIS_HIGH);
     font-size: 30px;
     position: relative;
-    left: 40px;
+    width: calc(100% - 40px);
+    margin-left: 40px;
+}
+
+#settingsPage h2{
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);
+    font-size: 20px;
+    position: relative;
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+#settingsPage h3{
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: rgba($ON_SURFACE, $EMPHASIS_MEDIUM);;
 }
 
 hr{

@@ -12,6 +12,11 @@ class AESKey{
         this.secretKey = secretKey;
     }
 
+    logout(){
+        const secretKey = crypto.scryptSync('', 'GfG', 32);
+        this.secretKey = secretKey;
+    }
+
     importSecretKey(key){
         this.secretKey = key;
     }

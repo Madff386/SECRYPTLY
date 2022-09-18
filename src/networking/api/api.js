@@ -10,7 +10,7 @@ exports.createUser = (userData) => {
 }
 
 exports.deleteUser = (userId) => {
-    return secryptly.delete('/users/' + userId, {});
+    return secryptly.delete('/users/' + userId);
 }
 
 exports.updateUser = (userData) => {
@@ -47,6 +47,9 @@ exports.getSent = () => {
     return secryptly.get('/messages/sent');
 }
 
+exports.onMessage = (callback) => {
+    secryptly.stream('/messages/receive', callback); 
+}
 
 
 exports.setProfilePicture = (filePath) => {

@@ -7,10 +7,26 @@ export class LoginPannel extends React.Component {
     super(props);
     this.state = {
       create: false,
+      open: true,
     };
-
+    this.close = this.close.bind(this);
   }
  
+  close(){
+    this.setState({
+      ...this.state,
+      open: false,
+    })
+  }
+
+  componentDidMount() {
+    window.api.ipcComm.on("LOGOUT", () => {
+      this.setState({
+        create: false,
+        open: true,
+      })
+    })
+  }
 
   switchToCreate(event) {
     document.getElementById('loginForm').style.transform = "translateX(-380px)";
@@ -23,18 +39,22 @@ export class LoginPannel extends React.Component {
   }
 
   render() {   
-    return (
-      <div className="background">
-        <div id="panel">
-          <img id='logo' src="../static/images/logo_transparent.png" alt="secryptly logo" />
-          <div className="divider"></div>
-          <div id="form">
-          <CreateAccountForm root={this.props.root} switchToLogin={() => this.switchToLogin()}/>
-          <LoginForm  root={this.props.root} switchToCreate={() => this.switchToCreate()}/>
+    if (this.state.open){
+      return (
+        <div className="background">
+          <div id="panel">
+            <img id='logo' src="../static/images/logo_transparent.png" alt="secryptly logo" />
+            <div className="divider"></div>
+            <div id="form">
+            <CreateAccountForm close={this.close} switchToLogin={() => this.switchToLogin()}/>
+            <LoginForm  close={this.close}  switchToCreate={() => this.switchToCreate()}/>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return null;
+    }
   }
 }
 
@@ -67,11 +87,11 @@ class LoginForm extends React.Component {
     event.preventDefault();
     document.getElementById('panel').className += " loading";
     document.getElementById('loginError').innerText = '';
-    window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( success => {
-      if (success){
-        this.props.root.unmount();
+    window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( response => {
+      if (response.success){
+        this.props.close();
       } else {
-        document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Username or Password");
+        document.getElementById('loginError').innerText = window.api.i18n.t(response.error);
       }
     }).catch( err => {
       document.getElementById('loginError').innerText = window.api.i18n.t("Inncorrect Username or Password");
@@ -86,7 +106,9 @@ class LoginForm extends React.Component {
       <form onSubmit={this.handleSubmit} id="loginForm">
         <input id="usernameLoginField" type='text' placeholder={window.api.i18n.t("Username")} name="username" onChange={this.handleInputChange} />
         <input id="passwordField" type="password" placeholder={window.api.i18n.t("Password")} name="password" onChange={this.handleInputChange}/>
-        <small className='error' id='loginError'></small>
+        <small className='error' id='loginError'></small> 
+          {//TODO: add info icon / help icon with tooltip for extended error message and meaning, clickable reset popup to reset local key and add user to this device
+          }
         <button className="submitButton" id="loginButton" type='submit' disabled={true}>{window.api.i18n.t("Login")}</button>
         <p id='createAccount' onClick={() => {this.props.switchToCreate()}}>{window.api.i18n.t("Create Account")}</p>
       </form>
@@ -135,22 +157,26 @@ class CreateAccountForm extends React.Component {
     document.getElementById('passwordError').innerText = '';
 
     if (document.getElementById('usernameField').value == '') {
-      document.getElementById('usernameError').innerText = 'username can\'t be blank';
+      document.getElementById('usernameError').innerText = window.api.i18n.t('Username can\'t be blank');
 
     } else if (document.getElementById('emailCreateField').value == '') {
-      document.getElementById('emailError').innerText = 'email can\'t be blank';
+      document.getElementById('emailError').innerText = window.api.i18n.t('Email can\'t be blank');
 
     } else if (document.getElementById('passwordCreateField').value == '') {
-      document.getElementById('passwordError').innerText = 'password can\'t be blank';
+      document.getElementById('passwordError').innerText = window.api.i18n.t('Password can\'t be blank');
 
     } else if (document.getElementById('passwordCreateField').value != document.getElementById('confirmPasswordField').value) {
-      document.getElementById('confirmError').innerText = 'passwords are not the same';
+      document.getElementById('confirmError').innerText = window.api.i18n.t('Passwords are not the same');
     } else {
       window.api.ipcComm.invoke("CREATE_ACCOUNT", this.state).then( response => {
         if (response.error) {
-          document.getElementById(response.field + "Error").innerText = response.error;
+          document.getElementById(response.field + "Error").innerText = window.api.i18n.t(response.error);
         } else {
-          console.log("good");
+          window.api.ipcComm.invoke("LOGIN", {username: this.state.username, password: this.state.password}).then( response => {
+            if (response.success){
+              this.props.close();
+            }
+          });
         }
       })
     }

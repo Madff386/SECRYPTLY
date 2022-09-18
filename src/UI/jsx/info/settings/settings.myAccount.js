@@ -13,7 +13,42 @@ export class MyAccount extends React.Component {
         this.handleSaveChange = this.handleSaveChange.bind(this);
         this.handleStop = this.handleStop.bind(this);
         this.changeProfile = this.changeProfile.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.deleteAccount = this.deleteAccount.bind(this);
     }
+
+    deleteAccount(event) {
+        window.api.ipcComm.send("POPUP", {
+            type: "confirm",
+            title: window.api.i18n.t("Delete Account"),
+            body: window.api.i18n.t("You are about to delete your account, this action is irreversible."),
+            input1Type: "none",
+            input2Type: "none",
+            button1: window.api.i18n.t("Cancel"),
+            button2: window.api.i18n.t("Delete"),
+            button1Type: "cancel",
+            button2Type: "delete",
+            onSuccess: "DELETE_ACCOUNT",
+        });
+    }
+
+    changePassword(event) {
+        window.api.ipcComm.send("POPUP", {
+            type: "input",
+            title: window.api.i18n.t("Change Password"),
+            body: "",
+            input1: window.api.i18n.t("New Password"),
+            input2: window.api.i18n.t("Confirm Password"),
+            input1Type: "password",
+            input2Type: "password",
+            button1: window.api.i18n.t("Cancel"),
+            button2: window.api.i18n.t("Change"),
+            button1Type: "cancel",
+            button2Type: "confirm",
+            onSuccess: "UPDATE_USER_DATA",
+        });
+    }
+
 
     componentDidMount(){
         window.api.ipcComm.invoke("GET_MY_DATA", {}).then( response => {
@@ -55,7 +90,7 @@ export class MyAccount extends React.Component {
     handleSaveChange(event){
         if (event.key == 'Enter') {
             document.getElementById('profile').className = 'loading';
-            window.api.ipcComm.invoke("UPDATE_USER_DATA", { id: this.state.id, [event.target.name]: event.target.value }).then( response => {
+            window.api.ipcComm.invoke("UPDATE_USER_DATA", { [event.target.name]: event.target.value }).then( response => {
                 if (response.success) {
                     this.setState({
                         ...this.state,
@@ -69,7 +104,7 @@ export class MyAccount extends React.Component {
                     event.target.offsetHeight; /* trigger reflow */
                     event.target.animation = null; 
                     event.target.style.animation = "shake 0.5s cubic-bezier(.36,.07,.19,.97) both";
-                    event.target.nextElementSibling.nextElementSibling.innerText = response.error;
+                    event.target.nextElementSibling.nextElementSibling.innerText = window.api.i18n.t(response.error);
                     document.getElementById('profile').className = '';
                 }
             }) 
@@ -85,7 +120,7 @@ export class MyAccount extends React.Component {
                     ...this.state,
                     time: Date.now(),
                 })
-                window.api.ipcComm.send("REFRESH", "profilePicture"); // implement this for info bar
+                window.api.ipcComm.send("REFRESH", "profilePicture"); 
             } else {
                 event.target.parentElement.style.animation = 'none';
                 event.target.parentElement.offsetHeight; /* trigger reflow */
@@ -166,15 +201,15 @@ export class MyAccount extends React.Component {
                 </div>
                 <hr />
 
-                <h1>{window.api.i18n.t("Password and Authentication")}</h1>
+                <h2>{window.api.i18n.t("Password and Authentication")}</h2>
 
-                <button id='changePassword'>{window.api.i18n.t("Change Password")}</button>
+                <button id='changePassword' onClick={this.changePassword}>{window.api.i18n.t("Change Password")}</button>
 
                 <hr />
 
-                <h1>{window.api.i18n.t("Account Removal")}</h1>
+                <h2>{window.api.i18n.t("Account Removal")}</h2>
                 <p>{window.api.i18n.t("Deleting your account will permenantly remove it, there is no way to undo this action.")}</p>
-                <button id='deleteAccount'>{window.api.i18n.t("Delete Account")}</button>
+                <button id='deleteAccount' onClick={this.deleteAccount}>{window.api.i18n.t("Delete Account")}</button>
 
             </div>
         ); 

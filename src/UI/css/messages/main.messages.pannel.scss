@@ -66,6 +66,11 @@
     overflow-wrap: break-word;
     padding: 20px;
     width: calc(100% - 40px);
+    overflow-x: hidden;
+}
+
+#outMsg .container{
+    transition: all 500ms cubic-bezier(1, -0.97, 0.37, 0.99) 300ms;
 }
 
 
@@ -83,4 +88,24 @@
 pre > div{
     font-size: 15px;
     @include shadow-2dp-inset;
+}
+
+a:link {
+    color: $COLOR_PRIMARY;
+}
+
+a:visited {
+    color: $COLOR_SECONDARY;
+}
+
+a:hover {
+    color: $COLOR_PRIMARY_VARIANT;
+}
+
+a:active {
+    color: $COLOR_PRIMARY_VARIANT;
+}
+
+.dud{
+    color: rgba($ON_BACKGROUND, $EMPHASIS_DISABLED);
 }

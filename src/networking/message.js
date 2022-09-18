@@ -41,7 +41,16 @@ function seperateMessage(message){
 function sendMessage(text, receiverId){
     return api.getUser(receiverId).then( response => {
         let message = generateMessage(text, response.data.pubkey);
-        return api.sendMessage(receiverId, message);
+        let data = api.sendMessage(receiverId, message).then( response => {
+            return {response, message};
+        }).catch( err => {
+            if (err.response && err.response.status && err.response.status == 400) {
+                
+                return {response: err.response};
+            }
+            throw err;
+        })
+        return data;
     })
     
 }

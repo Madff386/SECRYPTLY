@@ -1,4 +1,4 @@
-const {ipcMain} = require('electron');
+const {ipcMain, nativeTheme} = require('electron');
 const {Store} = require('../storage/store');
 const {sendMessage, retreiveMessage} = require('../networking/message');
 const { contactsContextMenu } = require('../UI/menu');
@@ -8,15 +8,32 @@ ipcMain.handle("LOGIN", (event, data) => {
     
     currentUserData = new Store(data.username);
     if (!currentUserData.exists){
-        return false; // user doesn't exist on this device
+        return {success: false, error: "User doesn't exist on this device"}; 
     }
     fileKey.login(data.password);
-    messageKey.importKey(currentUserData.get("messageKey"));
+    const messageKeySuccess = messageKey.importKey(currentUserData.get("messageKey"));
     return secryptly.login(currentUserData.get("email"), data.password).then( success => {
-        if (success){
+        if (success && messageKeySuccess){
             win.webContents.send("LOGGED_IN", data.username);
+
+            api.onMessage((data) => {
+                win.webContents.send('MESSAGE_RECEIVED', JSON.parse(data.toString()));
+            });
+
+            return {success: true};
         }
-        return success;
+        if (success == messageKeySuccess){
+            return {success: false, error: "Inncorrect Username or Password"};
+        } else {
+            if (success){
+                return {success: false, error:"Local key outdated"};
+            }
+            return {success: false, error:"Inncorrect Username or Password"}
+        }  
+    }).catch( err => {
+        if (err.response && err.response.status && err.response.status == 404) {
+            return {success: false, error: "User doesn't exist"};
+        }
     });
 });
 
@@ -53,10 +70,8 @@ ipcMain.handle("GET_MY_DATA", (event, data) => {
 
 ipcMain.handle("SEND_MSG", (event, data) => {
     return sendMessage(data.text, data.to).then( response => {
-        return {error: null};
-    }).catch( error => {
-        console.log(error);
-        return error.response.data;
+        win.webContents.send("UPDATE_ORDER", {});
+        return {message: response.message, error: response.response.data.error};
     })
 })
 
@@ -137,14 +152,19 @@ ipcMain.on("REFRESH", (event, data) => {
     win.webContents.send("REFRESH", data);
 })
 
-ipcMain.on("CHANGE_THEME", (event, data) => {
-    win.webContents.send("CHANGE_THEME", data);
-    if (data.theme == 'light'){
-        settings.set("isLightTheme", true);
-    } else {
-        settings.set("isLightTheme", false);
-    }
+ipcMain.on("CHANGE_THEME", (event, theme) => {
+    nativeTheme.themeSource = theme;
+    settings.set("theme", theme);
+    win.webContents.send("SHOULD_USE_DARK", nativeTheme.shouldUseDarkColors);
+    
+})
 
+ipcMain.handle("GET_THEME", (event, data) => {
+    return nativeTheme.shouldUseDarkColors;
+})
+
+ipcMain.handle("GET_THEME_SOURCE", (event, data) => {
+    return settings.get("theme");
 })
 
 ipcMain.on("SETTINGS", (event, data) => {
@@ -153,9 +173,15 @@ ipcMain.on("SETTINGS", (event, data) => {
 
 ipcMain.handle("UPDATE_USER_DATA", (event, data) => {
     delete data.pubkey;
+    data['id'] = currentUserData.get("id");
     return api.updateUser(data).then( response => {
         if (response.status == 204){
-            currentUserData.set(Object.keys(data)[1], data[Object.keys(data)[1]])
+            if (Object.keys(data)[0] != 'password') {
+                currentUserData.set(Object.keys(data)[0], data[Object.keys(data)[0]])
+            } else {
+                fileKey.login(data[Object.keys(data)[0]]);
+                currentUserData.set("messageKey", messageKey.exportKey()); //TODO: test this 
+            }
             return { success: true };
         }
         return { success: false, error: response.status };
@@ -179,4 +205,32 @@ ipcMain.handle("SET_PROFILE_PICTURE", (event, data) => {
         .catch( err => {
             return false;
         })
+})
+
+ipcMain.on("POPUP", (event, data) => {
+    win.webContents.send("POPUP", data);
+})
+
+
+ipcMain.handle("DELETE_ACCOUNT", (event, data) => {
+    return api.deleteUser(currentUserData.get("id")).then( response => {
+        currentUserData.delete();
+        return {success: true};
+    }).catch( err => {
+        logger.error(err);
+        return {success: false, error: err.message};
+    })
+})
+
+ipcMain.on("LOGOUT", (event, data) => {
+    currentUserData = null;
+    fileKey.logout();
+    messageKey.regenerate();
+    secryptly.logout();
+    win.webContents.send("LOGOUT", {});
+})
+
+
+ipcMain.on("i18n.t", (event, text) => {
+    event.returnValue = i18n.t(text);
 })

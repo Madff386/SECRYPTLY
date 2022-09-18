@@ -1,5 +1,4 @@
-const { Titlebar, Color} = require("custom-electron-titlebar");
-const i18n = require('./UI/i18n');
+import { Titlebar, Color} from "custom-electron-titlebar";
 
 window.addEventListener('DOMContentLoaded', () => {
   new Titlebar({
@@ -36,7 +35,7 @@ contextBridge.exposeInMainWorld(
     },
     i18n: {
       t: (text) => {
-        return i18n.t(text);
+        return ipcRenderer.sendSync("i18n.t", text);
       }
     }
 	}

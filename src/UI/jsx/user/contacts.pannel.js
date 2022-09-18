@@ -55,18 +55,44 @@ export class ContactsPannel extends React.Component {
             return new Date(second.time) - new Date(first.time);
            });
         
+        
+        if (contacts[0]) {
+            this.setState({
+                ...this.state,
+                contactsAll: contacts,
+                selected: contacts[0].id, 
+                                        //TODO: first one doesn't exist yet? message still exists but no user
+            })
 
+            window.api.ipcComm.send("SWITCH_CONTACT", {id: contacts[0].id});
+        } else {
+            this.setState({
+                ...this.state,
+                contactsAll: contacts,
+                selected: null,
+            })
+            window.api.ipcComm.send("SWITCH_CONTACT", {id: null});
+
+        }
+        
+    }
+
+    updateOrder(){
+        let contacts = this.state.contactsAll;
+
+        contacts.sort(function(first, second) {
+            return new Date(second.time) - new Date(first.time);
+           });
+        
         this.setState({
             ...this.state,
             contactsAll: contacts,
-            selected: contacts[0].id,
         })
-
-        window.api.ipcComm.send("SWITCH_CONTACT", {id: contacts[0].id});
         
     }
 
     switchContact(id){
+        this.updateOrder();
         this.setState({
             ...this.state,
             selected: id,
@@ -78,11 +104,49 @@ export class ContactsPannel extends React.Component {
             this.getData();
         });
 
+        window.api.ipcComm.on("UPDATE_ORDER", () =>{
+            this.updateOrder();
+        });
+
+        window.api.ipcComm.on("LOGOUT", () => {
+            this.setState({
+                ...this.state,
+                selected: null,
+                contactsAll: [],
+            })
+        })
+
+        window.api.ipcComm.on('MESSAGE_RECEIVED', (data) => {
+            let contacts = this.state.contactsAll;
+            let index; 
+            let found = contacts.some((e, i) => {
+                if (e.id == data.from){
+                    index = i;
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            if (!found){
+                contacts.push({
+                    id: data.from,
+                    time: data.time,
+                });
+            } else {
+                contacts[index].time = data.time;
+                this.setState({
+                    ...this.state,
+                    contactsAll: contacts
+                }, this.updateOrder);
+            }
+        });
+
         window.api.ipcComm.on("ADD_CONTACT", () => {
             this.getData();
         });
 
         window.api.ipcComm.on("REFRESH", () => {
+            this.updateOrder();
             this.setState({
                 ...this.state,
                 time: Date.now(),
@@ -161,7 +225,7 @@ function Contact(props){
         username: "loading...",
         read: true, //TODO: add feature to mark message as read
         id: props.userId,
-        exists: true,
+        exists: false,
     });
 
 
@@ -178,6 +242,7 @@ function Contact(props){
             setUser(prev => ({
                 ...prev,
                 username: response.username,
+                exists: true,
             }));
         }
     }

@@ -6,7 +6,8 @@ import { LoginPannel } from './user/user.login';
 import { MessagesPannel } from './messages/main.message.pannel';
 import { ContactsPannel } from './user/contacts.pannel';
 import { InfoPannel } from './info/info.bar';
-import { SettingsPannel } from './info/settings';
+import { SettingsPannel } from './info/settings/settings';
+import { PopUp } from './lib/popup';
 
 export function Main(){
     const loginPannelRoot = ReactDOM.createRoot(document.getElementById("loginPannelRoot"));
@@ -24,6 +25,7 @@ export function Main(){
             <ContactsPannel />
             <InfoPannel />
             <SettingsPannel />
+            <PopUp />
         </div>
     )
     

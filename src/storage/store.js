@@ -28,6 +28,10 @@ class Store{
         let data = JSON.parse(fs.readFileSync(this.path));
         return data[key];
     }
+
+    delete(){
+        fs.unlinkSync(this.path);
+    }
 }
 
 exports.Store = Store;

@@ -12,7 +12,6 @@ export class InfoPannel extends React.Component {
     
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRender = this.handleRender.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
     this.handleSettings = this.handleSettings.bind(this);
   }
 
@@ -26,17 +25,7 @@ export class InfoPannel extends React.Component {
     window.api.ipcComm.send("PING", "TOGGLE_RENDER");
   }
 
-  handleToggle(event) {
-    event.preventDefault();
-    const element = document.getElementById('stylesheet');
-    if (element.href.includes('dark_main.css')) {
-      element.href = 'light_main.css';
-      window.api.ipcComm.send("CHANGE_THEME", {theme: 'light'});
-    } else {
-      element.href = 'dark_main.css';
-      window.api.ipcComm.send("CHANGE_THEME", {theme: 'dark'});
-    }
-  }
+
 
   handleSettings(event) {
     event.preventDefault();
@@ -76,9 +65,6 @@ export class InfoPannel extends React.Component {
             </g>
           </svg>
          </button>
-         <button id='themeButton' onClick={this.handleToggle}>
-            Toggle light / dark mode
-         </button>
           <button id='sendButton' onClick={this.handleSubmit}>
           <span id='sendIcon'>&rarr;</span> 
           </button>
@@ -110,6 +96,14 @@ const UserInfoPannel = (props) => {
       window.api.ipcComm.invoke("GET_MY_ID", username).then( id => {
         getData(id);
       });
+    })
+
+    window.api.ipcComm.on("LOGOUT", () => {
+      setUser(prev => ({
+        ...prev,
+        username: '',
+        id: 'default',
+    }));
     })
   }, []);
 
