@@ -13,7 +13,9 @@
     "test": "set NODE_ENV=testing && mocha test/unit && playwright test test/end-to-end/entrypoints --reporter=dot",
     "test:e2e": "set NODE_ENV=testing && playwright test test/end-to-end/entrypoints --reporter=dot",
     "test:e2e-debug": "set NODE_ENV=testing && playwright test test/end-to-end/entrypoints --debug",
-    "test:e2e-report": "playwright show-report"
+    "test:e2e-report": "playwright show-report",
+    "pull": "git pull & git merge origin/master",
+    "push": "git add . && git commit & git push"
   },
   "repository": {
     "type": "git",
