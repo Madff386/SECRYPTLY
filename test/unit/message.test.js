@@ -1,6 +1,6 @@
-const { generateMessage, seperateMessage } = require('../src/networking/message');
+const { generateMessage, seperateMessage } = require('../../src/networking/message');
 const expect = require('chai').expect;
-const {RSAKey} = require('../src/cryptography/RSA');
+const {RSAKey} = require('../../src/cryptography/RSA');
 
 
 

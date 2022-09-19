@@ -23,9 +23,10 @@ global.i18n = new I18n();
 
 const menu = require('./UI/menu').menu;
 
-const ipcHandler = require('./ipc/ipc.handlers');
+require('./ipc/ipc.handlers');
 
 const theme = settings.get('theme');
+
 if (theme){
     nativeTheme.themeSource = theme;
 } else {
@@ -65,7 +66,9 @@ const createWindow = () => {
 
     Menu.setApplicationMenu(menu());
 
-    win.webContents.openDevTools()
+    if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'development') {
+        win.webContents.openDevTools();
+    }
     
     win.loadFile(path.join(__dirname, '../dist/index.html'))
 

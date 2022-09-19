@@ -177,10 +177,17 @@ ipcMain.handle("UPDATE_USER_DATA", (event, data) => {
     return api.updateUser(data).then( response => {
         if (response.status == 204){
             if (Object.keys(data)[0] != 'password') {
-                currentUserData.set(Object.keys(data)[0], data[Object.keys(data)[0]])
+                currentUserData.set(Object.keys(data)[0], data[Object.keys(data)[0]]);
+                if (Object.keys(data)[0] == 'username') {
+                    let tmp = currentUserData.dump();
+                    currentUserData.delete();
+                    currentUserData = new Store(data[Object.keys(data)[0]]);
+                    currentUserData.create(tmp);
+                }
             } else {
                 fileKey.login(data[Object.keys(data)[0]]);
                 currentUserData.set("messageKey", messageKey.exportKey()); //TODO: test this 
+                
             }
             return { success: true };
         }

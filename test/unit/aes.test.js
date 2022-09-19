@@ -1,5 +1,5 @@
 
-const { AESKey } = require('../src/cryptography/AES');
+const { AESKey } = require('../../src/cryptography/AES');
 const expect = require('chai').expect;
 
 

@@ -1,4 +1,4 @@
-import { Titlebar, Color} from "custom-electron-titlebar";
+import { Titlebar, Color} from "custom-electron-titlebar"; // TODO: update electron to v20 when pull request for this merges or owtherise gets fixed -> sandboxed preload process
 
 window.addEventListener('DOMContentLoaded', () => {
   new Titlebar({

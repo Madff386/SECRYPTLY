@@ -1,4 +1,4 @@
-const { RSAKey } = require('../src/cryptography/RSA');
+const { RSAKey } = require('../../src/cryptography/RSA');
 const expect = require('chai').expect;
 
 

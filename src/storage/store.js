@@ -11,9 +11,9 @@ class Store{
         this.exists = fs.existsSync(this.path);
     }
 
-    create(){
-        if (!fs.existsSync(this.path)){
-            fs.writeFileSync(this.path, JSON.stringify({}, null, 2));
+    create(start = {}){
+        if (!fs.existsSync(this.path) || start != {}){
+            fs.writeFileSync(this.path, JSON.stringify(start, null, 2));
         }
         this.exists = true;
     }
@@ -31,6 +31,10 @@ class Store{
 
     delete(){
         fs.unlinkSync(this.path);
+    }
+
+    dump(){
+        return JSON.parse(fs.readFileSync(this.path));
     }
 }
 

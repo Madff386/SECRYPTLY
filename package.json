@@ -5,11 +5,14 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
+    "dev": "set NODE_ENV=development && npm run build:dev && npm run start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "build:dev": "sass src/UI/css/bootstrap.scss:dist/main.css && webpack --mode=development",
+    "build:dev": "set NODE_ENV=development && sass src/UI/css/bootstrap.scss:dist/main.css && webpack --mode=development",
     "build:prod": "sass src/UI/css/bootstrap.scss:dist/main.css && webpack --mode=production",
-    "test": "mocha"
+    "test": "set NODE_ENV=testing && playwright test test/end-to-end/entrypoints --reporter=dot",
+    "test:debug": "set NODE_ENV=testing && playwright test test/end-to-end/entrypoints --debug",
+    "test:report": "playwright show-report"
   },
   "repository": {
     "type": "git",
@@ -30,15 +33,17 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.66",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
     "@electron-forge/maker-wix": "^6.0.0-beta.66",
+    "@playwright/test": "^1.25.2",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.3.6",
-    "electron": "^20.1.4",
+    "electron": "^19.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mocha": "^10.0.0",
+    "playwright": "^1.25.2",
     "sass": "^1.54.9",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
@@ -77,12 +82,6 @@
           "config": {
             "name": "secryptly"
           }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
         },
         {
           "name": "@electron-forge/maker-deb",
