@@ -55,7 +55,8 @@ jobs:
         tar -xf wix311-binaries.zip
         set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
     
-    - run: echo %PATH%
+    - run: echo $Env:%PATH%
+    - run: (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
     - run: candle
     - run: light
       
