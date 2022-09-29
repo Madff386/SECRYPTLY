@@ -70,20 +70,14 @@
           "name": "@electron-forge/maker-wix",
           "config": {
             "name": "SECRYPTLY",
-            "appIconPath": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\icon-transparent.ico",
+            "appIconPath": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\icon-transparent.ico",
             "ui": {
               "chooseDirectory": true,
               "images": {
-                "background": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_background.bmp",
-                "banner": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_banner.bmp"
+                "background": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\install_background.bmp",
+                "banner": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\install_banner.bmp"
               }
             }
-          }
-        },
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "secryptly"
           }
         },
         {
@@ -93,6 +87,13 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "background": "./static/images/dmg-background.png",
+            "format": "ULFO"
+          }
         }
       ]
     }

@@ -40,7 +40,7 @@ test.describe('LOGIN', async () => {
     let text = await createAccountLink.innerText();
     expect(text).toBe('Create Account');
     createAccountLink.click();
-    await window.waitForTimeout(250);
+    await window.waitForTimeout(300);
 
     let createForm = await window.locator('#createForm');
     await expect(await createForm.getAttribute('style')).toBe('transform: translateX(-380px);');
@@ -53,7 +53,7 @@ test.describe('LOGIN', async () => {
     let text = await loginLink.innerText();
     expect(text).toBe('Login Instead');
     loginLink.click();
-    await window.waitForTimeout(250);
+    await window.waitForTimeout(500);
 
     let loginForm = await window.locator('#loginForm');
     await expect(await loginForm.getAttribute('style')).toBe('transform: translateX(0px);');
