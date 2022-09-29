@@ -33,7 +33,7 @@ jobs:
   build-and-package:
     name: Build and package application
     needs: [check-version]
-    if: needs.check-version.outputs.changed == 'true'
+    #if: needs.check-version.outputs.changed == 'true'
 
     runs-on: windows-latest
     steps:
@@ -55,8 +55,8 @@ jobs:
         tar -xf wix311-binaries.zip
         set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
       
-    - run: candle.exe
-    - run: light.exe
+    - run: candle
+    - run: light
       
         
     - name: npm install, build, and package
