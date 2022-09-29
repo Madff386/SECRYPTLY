@@ -17,6 +17,10 @@ jobs:
       with:
         diff-search: true
         token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Log when changed
+      if: steps.check.outputs.changed == 'true'
+      run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
 
   build-and-package:
     needs: check-version
