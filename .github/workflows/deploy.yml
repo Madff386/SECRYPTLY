@@ -43,6 +43,19 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
+    - name: download wix toolset; `light.exe` and `candle.exe`
+      uses: robinraju/release-downloader@v1.5
+      with: 
+        repository: "wixtoolset/wix3"
+        latest: true
+        fileName: "wix311-binaries.zip"
+        
+    - name: install candle and light
+      run: |
+        tar -xf wix311-binaries.zip
+        set PATH=%PATH%;D:\a\SECRYPTLY\wix311-binaries\
+      
+        
     - name: npm install, build, and package
       run: |
         npm install
