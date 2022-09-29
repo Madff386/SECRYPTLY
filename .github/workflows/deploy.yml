@@ -53,8 +53,9 @@ jobs:
     - name: install candle and light
       run: |
         tar -xf wix311-binaries.zip
-        $env:PATH += ";D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
-        
+        [Environment]::SetEnvironmentVariable("Path", $env:Path + ";D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\", "Machine")
+       
+    - run: echo $env:Path
     - run: candle
     - run: light
       
