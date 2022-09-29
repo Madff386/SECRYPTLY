@@ -98,7 +98,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: secryptly-win32-x64.msi
+        asset_path: /home/runner/work/SECRYPTLY/SECRYPTLY/secryptly-win32-x64.msi
         asset_name: secryptly-win32-x64.msi
         asset_content_type: application/msword
     
