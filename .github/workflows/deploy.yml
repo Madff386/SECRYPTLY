@@ -53,6 +53,8 @@ jobs:
     - name: install candle and light
       run: |
         tar -xf wix311-binaries.zip
+        dir
+        dir ./wix311-binaries/
         mv ./wix311-binaries/candle.exe ./candle.exe
        
     - run: echo $env:Path
