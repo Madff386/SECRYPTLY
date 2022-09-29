@@ -33,7 +33,7 @@ jobs:
   build-and-package:
     name: Build and package application
     needs: [check-version]
-    #if: needs.check-version.outputs.changed == 'true'
+    if: needs.check-version.outputs.changed == 'true'
 
     runs-on: windows-latest
     steps:
@@ -73,5 +73,33 @@ jobs:
       with:
         name: secryptly-win32-x64.msi
         path: ./out/make/wix/x64/secryptly.msi
+        
+  release:
+    name: Create Release
+    needs: [build-and-package]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - id: create_release
+      uses: CupOfTea696/gh-action-auto-release@v1.0.0
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: secryptly-win32-x64.msi
+        
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: secryptly-win32-x64.msi
+        asset_name: secryptly-win32-x64.msi
+        asset_content_type: application/msword
     
     
