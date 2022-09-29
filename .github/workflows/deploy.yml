@@ -53,10 +53,10 @@ jobs:
     - name: install candle and light
       run: |
         tar -xf wix311-binaries.zip
-        set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
-    
-    - run: echo $Env:%PATH%
+        #set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
+        
     - run: (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
+    - run: echo $env:PATH
     - run: candle
     - run: light
       
