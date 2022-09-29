@@ -1,6 +1,6 @@
 {
   "name": "secryptly",
-  "version": "0.0.6-alpha2",
+  "version": "0.0.6-alpha3",
   "description": "secure messaging app",
   "main": "src/main.js",
   "scripts": {
@@ -67,12 +67,12 @@
           "name": "@electron-forge/maker-wix",
           "config": {
             "name": "SECRYPTLY",
-            "appIconPath": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\icon-transparent.ico",
+            "appIconPath": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\icon-transparent.ico",
             "ui": {
               "chooseDirectory": true,
               "images": {
-                "background": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_background.bmp",
-                "banner": "C:\\CODING\\SECRYPTLY_vJS\\static\\images\\install_banner.bmp"
+                "background": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\install_background.bmp",
+                "banner": "D:\\a\\SECRYPTLY\\SECRYPTLY\\static\\images\\install_banner.bmp"
               }
             }
           }
