@@ -55,6 +55,9 @@ jobs:
         tar -xf wix311-binaries.zip
         set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
       
+    - run: candle.exe
+    - run: light.exe
+      
         
     - name: npm install, build, and package
       run: |
