@@ -54,7 +54,8 @@ jobs:
       run: |
         tar -xf wix311-binaries.zip
         set PATH="%PATH%;D:\a\SECRYPTLY\SECRYPTLY\wix311-binaries\"
-      
+    
+    - run: echo %PATH%
     - run: candle
     - run: light
       
