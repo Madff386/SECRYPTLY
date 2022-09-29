@@ -9,6 +9,11 @@ jobs:
     name: Check if version changed in package.json
     runs-on: ubuntu-latest
     
+    outputs:
+      changed: ${{steps.check.outputs.changed}}
+      version: ${{steps.check.outputs.version}}
+      type: ${{steps.check.outputs.type}}
+    
     steps:
     - uses: actions/checkout@v3
     - name: Check if version has been updated
@@ -23,12 +28,12 @@ jobs:
 
 
   build-and-package:
-    needs: check-version
-    if: needs.check-version.steps.check.output.changed == 'true'
+    needs: [check-version]
+    if: needs.check-version.outputs.changed == 'true'
 
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - run: "echo ${{needs.check-version.steps.check.output}}"
+    - run: 'echo "Version change found! New version: ${{ needs.check-version.outputs.version }} (${{ needs.check-version.outputs.type }})"'
     
     
