@@ -1,0 +1,99 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  check-version:
+    name: Check if version changed in package.json
+    runs-on: ubuntu-latest
+    
+    outputs:
+      changed: ${{steps.check.outputs.changed}}
+      version: ${{steps.check.outputs.version}}
+      type: ${{steps.check.outputs.type}}
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Check if version has been updated
+      id: check
+      uses: EndBug/version-check@v1
+      with:
+        diff-search: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Log when changed
+      if: steps.check.outputs.changed == 'true'
+      run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+      
+    - name: Log when unchanged
+      if: steps.check.outputs.changed == 'false'
+      run: 'echo "No version change :/"'
+
+  build-and-package:
+    name: Build and package application
+    needs: [check-version]
+    if: needs.check-version.outputs.changed == 'true'
+
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+    - name: download wix toolset; `light.exe` and `candle.exe`
+      uses: robinraju/release-downloader@v1.5
+      with: 
+        repository: "wixtoolset/wix3"
+        latest: true
+        fileName: "wix311-binaries.zip"
+        
+    - name: install candle and light
+      run: |
+        tar -xf wix311-binaries.zip
+    
+    - run: echo "D:/a/SECRYPTLY/SECRYPTLY/" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          
+    - name: npm install, build, and make
+      run: |
+        npm install
+        npm run build:prod
+        npm run make
+
+    - name: Upload artifact for deployment and release
+      uses: actions/upload-artifact@v3
+      with:
+        name: secryptly-win32-x64.msi
+        path: ./out/make/wix/x64/secryptly.msi
+        
+  release:
+    name: Create Release
+    needs: [build-and-package]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - id: create_release
+      uses: CupOfTea696/gh-action-auto-release@v1.0.0
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: secryptly-win32-x64.msi
+        
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: /home/runner/work/SECRYPTLY/SECRYPTLY/secryptly.msi
+        asset_name: secryptly-win32-x64.msi
+        asset_content_type: application/msword
+    
+    
