@@ -1,6 +1,6 @@
 {
   "name": "secryptly",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "secure messaging app",
   "main": "src/main.js",
   "scripts": {
